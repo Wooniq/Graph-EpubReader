@@ -66,3 +66,21 @@
     align-items: flex-end;
     margin: 1.2rem 0;
 }
+
+.react-chatbot-kit-chat-bot-loading-icon-container {}
+
+.chatbot-loader-container {}
+
+#chatbot-loader #chatbot-loader-dot1 {
+    animation: load 1.5s infinite;
+}
+
+#chatbot-loader #chatbot-loader-dot2 {
+    animation: load 1.5s infinite;
+    animation-delay: 0.3s;
+}
+
+#chatbot-loader #chatbot-loader-dot3 {
+    animation: load 1.5s infinite;
+    animation-delay: 0.6s;
+}
