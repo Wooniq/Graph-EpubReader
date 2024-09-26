@@ -5,7 +5,7 @@ const { exec } = require('child_process');
 const iconv = require('iconv-lite');  // 인코딩 변환을 위한 라이브러리
 
 const app = express();
-const port = 5000;
+const port = 3000;
 
 app.use(cors());
 app.use(bodyParser.json({ limit: '50mb', type: 'application/json', charset: 'utf-8' }));
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, charset: 'utf-8' 
 app.post('/run-query', (req, res) => {
     let message = req.body.message;
     console.log(`message : ${message}`);
-    message += " 한국어로 번역해줘.";
+    message += " 한국어로 번역해줘."; 
 
     // Python 실행 환경에 UTF-8 인코딩 적용
     const pythonCommand = `python -m graphrag.query --root ./src/parquet --response_type "single sentence" --method global "${message}"`;
