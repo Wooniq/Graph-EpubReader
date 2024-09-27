@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, charset: 'utf-8' 
 app.post('/run-query', (req, res) => {
     let message = req.body.message;
     console.log(`message : ${message}`);
-    message += " 한국어로 번역해줘."; 
+    message += " 한국어로 번역해줘.";
 
     // Python 실행 환경에 UTF-8 인코딩 적용
     const pythonCommand = `python -m graphrag.query --root ./src/parquet --response_type "single sentence" --method global "${message}"`;
@@ -26,29 +26,35 @@ app.post('/run-query', (req, res) => {
         }
 
         let output = iconv.decode(stdout, 'euc-kr');
+
+//         output = `
+//         INFO: Reading settings from src\\parquet\\settings.yaml
+// SUCCESS: Global Search Response: ### 요약:
+
+// 앨리스의 모험 원더랜드 커뮤니티는 앨리스와 여러 캐 릭터들의 상호작용을 중심으로 이루어지며, 앨리스의 행동은 커뮤니티의 구조와 결과에 상당한 영향을 미칩니다.
+
+// [Data: Reports (1, 2, 5, 7, 8, +more)]
+// //         `
         
         console.log(output);
 
         // SUCCESS: Global Search Response 또는 SUCCESS: Local Search Response 이후의 텍스트 추출
-        const regex = /SUCCESS: (?:Global|Local) Search Response:\s*(.*?)\s*(?:\[.*?\])?$/;
+        // const regex = /SUCCESS: (Global|Local) Search Response:\s*(.*)/;
+        const regex = /SUCCESS: (Global|Local) Search Response:\s*([\s\S]+?)(?=\[(Data|데이터)|\n*$)/;
 
         // 정규 표현식을 사용하여 앞뒤 제거된 메시지를 추출
         const match = output.match(regex);
-        let preanswer;
+        let answer;
 
         if (match) {
-            preanswer = match[1].trim(); // 실제 메시지 부분만 추출
-            console.log(`Extracted answer: ${preanswer}`); // 추출된 답변 출력
+            answer = match[2].trim(); // 실제 메시지 부분만 추출
+            console.log(`Extracted answer: ${answer}`); // 추출된 답변 출력
         } else {
             console.log("No match found.");
-            preanswer = "No valid response found."; // 매칭이 되지 않으면 기본 메시지 설정
+            answer = "No valid response found."; // 매칭이 되지 않으면 기본 메시지 설정
         }
 
-        // [Data: ...] 부분 제거
-        preanswer = preanswer.replace(/\[Data:.*?\]/g, '').trim(); // [Data: ...] 형식의 부분을 제거하고 trim
-        console.log(`Cleaned answer: ${preanswer}`); // 정제된 답변 출력
-
-        res.json({ result: preanswer });
+        res.json({ result: answer });
     });
 });
 

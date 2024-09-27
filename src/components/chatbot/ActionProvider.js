@@ -25,8 +25,11 @@ class ActionProvider {
             const data = await response.json(); // 서버의 응답 받기dataResult
             console.log(`Raw data: ${data.reuslt}`); // 응답 데이터 출력
 
+            // \n을 <br />로 변환
+            const formattedResult = data.result ? data.result.replace(/\n/g, '<br />') : "No result returned.";
+
             // 챗봇 메시지 생성
-            const chatbotMessage = this.createChatbotMessage(data.result || "No result returned.");
+            const chatbotMessage = this.createChatbotMessage(<span dangerouslySetInnerHTML={{ __html: formattedResult }} />);
 
             // 상태에 메시지를 추가
             this.setState((prev) => {

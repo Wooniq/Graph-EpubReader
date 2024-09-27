@@ -34,6 +34,11 @@ const App = () => {
   const tocRef = useRef(null)
   const readerRef = useRef(null)
   const [book, setBook] = useState(null)
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleChatbot = () => {
+    setIsOpen(!isOpen); // 버튼을 누를 때마다 열리고 닫히는 상태 토글
+  };
 
   const updatePageInfo = (epubcifi) => {
     if (book && book.locations && book.locations.length() > 0) {
@@ -197,14 +202,19 @@ const App = () => {
         <GraphViewer nodes={nodes} links={links} />
       </div>
 
-      {/* 최상단에 챗봇 */}
-      <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 9999 }}>
+      {/* 챗봇 */}
+      {isOpen && (
         <Chatbot
-          config={setting}
-          messageParser={MessageParser}
-          actionProvider={ActionProvider} 
-        />
-      </div>
+        config={setting}
+        actionProvider={ActionProvider}
+        messageParser={MessageParser}
+      />
+      )}
+
+      {/* 챗봇 버튼 */}
+      <button className="chatbot-button" onClick={toggleChatbot}>
+        <img src="image/network.png" alt="Chatbot Icon" style={{ width: '30px', height: '30px' }} />
+      </button>
     </div>
   )
 }
