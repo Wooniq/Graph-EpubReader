@@ -26,15 +26,6 @@ app.post('/run-query', (req, res) => {
         }
 
         let output = iconv.decode(stdout, 'euc-kr');
-
-//         output = `
-//         INFO: Reading settings from src\\parquet\\settings.yaml
-// SUCCESS: Global Search Response: ### 요약:
-
-// 앨리스의 모험 원더랜드 커뮤니티는 앨리스와 여러 캐 릭터들의 상호작용을 중심으로 이루어지며, 앨리스의 행동은 커뮤니티의 구조와 결과에 상당한 영향을 미칩니다.
-
-// [Data: Reports (1, 2, 5, 7, 8, +more)]
-// //         `
         
         console.log(output);
 
