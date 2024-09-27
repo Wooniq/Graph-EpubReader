@@ -2,15 +2,11 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.div`
   background: rgb(92, 130, 255);
-  background: linear-gradient(
-    90deg,
-    rgba(157, 92, 255, 1) 0%,
-    rgba(92, 130, 255, 1) 100%
-  );
+  background: #5F80FF;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.9rem;
 
   .ri-close-line,
   .ri-arrow-left-s-line {
@@ -22,7 +18,7 @@ const HeaderContainer = styled.div`
 function Header() {
     return (
         <HeaderContainer>
-            <i className="ri-arrow-left-s-line" />
+          <div style={{ color: 'white', fontWeight: 'bold', fontSize: '1rem' }}>GraphBot</div>
             <i className="ri-close-line" />
         </HeaderContainer>
     );
