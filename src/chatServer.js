@@ -14,10 +14,11 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, charset: 'utf-8' 
 app.post('/run-query', (req, res) => {
     let message = req.body.message;
     console.log(`message : ${message}`);
-    message += " 한국어로 번역해줘.";
+    message += "한국어로 번역해주세요. 읽기 쉽고 자연스럽게 전달되도록, 가독성을 최우선으로 생각해주세요.";
 
     // Python 실행 환경에 UTF-8 인코딩 적용
-    const pythonCommand = `python -m graphrag.query --root ./src/parquet --response_type "single sentence" --method global "${message}"`;
+    const pythonCommand = `python -m graphrag.query --root ./src/parquet --method global "${message}"`;
+    //--response_type "Single Paragraph" 생략함.
 
     exec(pythonCommand, { encoding: 'buffer', env: { ...process.env, LANG: 'ko_KR.UTF-8' } }, (error, stdout, stderr) => {
         if (error) {
@@ -25,7 +26,7 @@ app.post('/run-query', (req, res) => {
             return res.status(500).json({ error: stderr || error.message });
         }
 
-        let output = iconv.decode(stdout, 'euc-kr');
+        let output = stdout.toString('utf-8');
         
         console.log(output);
 

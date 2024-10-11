@@ -26,3 +26,28 @@ yarn-error.log*
 config.js
 src/parquet/.env
 src/parquet/output
+
+# Python virtual environment
+venv/
+.epubVenv/
+
+# Python cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# MacOS related files
+.DS_Store
+
+# IDE / Editor related
+.vscode/
+.idea/
+
+# Operating system generated files
+*.swp           # Vim/Neovim temporary files
+*.swo           # Vim/Neovim temporary files
+Thumbs.db       # Windows generated files
+
+# Node.js related
+npm-debug.log*
