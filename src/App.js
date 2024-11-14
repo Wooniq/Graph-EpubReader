@@ -1,16 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { ReactReader, ReactReaderStyle } from 'react-reader'
-import { FaBookmark, FaTrash, FaPalette } from 'react-icons/fa'
-import { fetchData } from './neo4jService';
-import GraphViewer from './components/GraphViewer.js';
+import React, { useState, useRef, useEffect } from 'react';
+import { ReactReader, ReactReaderStyle } from 'react-reader';
+import { FaBookmark, FaTrash, FaPalette } from 'react-icons/fa';
 import Chatbot from "react-chatbot-kit";
 import setting from "./components/chatbot/setting.js";
 import MessageParser from "./components/chatbot/MessageParser.js";
 import ActionProvider from "./components/chatbot/ActionProvider.js";
-
 import "react-chatbot-kit/build/main.css";
 import "./styles/chatbot.css";
 import "remixicon/fonts/remixicon.css";
+import NetworkGraph from './NetworkGraph'; // NetworkGraph 컴포넌트 가져오기
+
 
 const ownStyles = {
   ...ReactReaderStyle,
@@ -24,13 +23,12 @@ const HIGHLIGHT_COLORS = ['yellow', 'lightgreen', 'lightblue', 'pink']
 
 const App = () => {
   const [location, setLocation] = useState(null)
-  const [rendition, setRendition] = useState(null)
+  const [data, setData] = useState(null);
+  const [rendition, setRendition] = useState(null);
   const [page, setPage] = useState('')
   const [selections, setSelections] = useState([])
   const [showBookmarks, setShowBookmarks] = useState(false)
   const [currentColor, setCurrentColor] = useState(HIGHLIGHT_COLORS[0])
-  const [nodes, setNodes] = useState([]);
-  const [links, setLinks] = useState([]);
   const tocRef = useRef(null)
   const readerRef = useRef(null)
   const [book, setBook] = useState(null)
@@ -108,15 +106,6 @@ const App = () => {
       })
       rendition.themes.select('default')
     }
-
-    async function getData() {
-      const data = await fetchData();
-      if (data) {
-        setNodes(data.nodes || []);
-        setLinks(data.links || []);
-      }
-    }
-    getData();
   }, [rendition])
 
   return (
@@ -198,8 +187,8 @@ const App = () => {
       </div>
 
       {/* 오른쪽: Knowledge Graph */}
-      <div style={{ flex: '0 0 50%', position: 'relative', height: '100%', overflow: 'hidden' }}>
-        <GraphViewer nodes={nodes} links={links} />
+      <div style={{ flex: '0 0 50%', position: 'relative', height: '100%' }}>
+        <NetworkGraph width="100%" height="100%" /> {/* 스타일 적용된 NetworkGraph 컴포넌트 */}
       </div>
 
       {/* 챗봇 */}
