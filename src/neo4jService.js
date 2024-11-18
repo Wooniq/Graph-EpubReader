@@ -12,7 +12,7 @@ export async function fetchData() {
   const session = driver.session();
   
   try {
-    console.log('Neo4j 데이터베이스에 쿼리 실행 중...');
+    //console.log('Neo4j 데이터베이스에 쿼리 실행 중...');
 
     // 양방향 관계를 모두 포함하여 쿼리 실행
     const result = await session.run(`
@@ -21,7 +21,7 @@ export async function fetchData() {
       MATCH (n)<-[r]-(m) RETURN n, r, m
     `);
     
-    console.log('쿼리 결과:', result);
+    //console.log('쿼리 결과:', result);
 
     /*
      * result.records: 쿼리 결과
@@ -65,11 +65,11 @@ export async function fetchData() {
         relationship: record.get('r').type
       });
 
-      console.log('생성된 링크:', { source: nId, target: mId, relationship: record.get('r').type });
+      //console.log('생성된 링크:', { source: nId, target: mId, relationship: record.get('r').type });
     });
 
-    console.log('최종 노드:', nodes);
-    console.log('최종 링크:', links);
+    //console.log('최종 노드:', nodes);
+    //console.log('최종 링크:', links);
 
     return { nodes, links };
   } catch (error) {
@@ -77,6 +77,6 @@ export async function fetchData() {
     return { nodes: [], links: [] };
   } finally {
     await session.close();
-    console.log('Neo4j 세션 닫힘');
+    //console.log('Neo4j 세션 닫힘');
   }
 }

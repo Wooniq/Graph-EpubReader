@@ -15,6 +15,9 @@ import "react-chatbot-kit/build/main.css";
 import "./styles/chatbot.css";
 import "remixicon/fonts/remixicon.css";
 
+// WebRTC
+import VideoChat from './webRTC/components/VideoChat';
+
 const ownStyles = {
   ...ReactReaderStyle,
   arrow: {
@@ -228,6 +231,11 @@ const App = () => {
         {renderViewer()}
       </div>
 
+      {/* WebRTC */}
+      <div style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 2 }}>
+        <VideoChat />
+      </div>
+
       {/* 오른쪽: Knowledge Graph */}
       <div style={{ flex: '0 0 50%', position: 'relative', height: '100%', overflow: 'hidden' }}>
         <GraphViewer nodes={nodes} links={links} />
@@ -246,6 +254,8 @@ const App = () => {
       <button className="chatbot-button" onClick={toggleChatbot}>
         <img src="image/network.png" alt="Chatbot Icon" style={{ width: '30px', height: '30px' }} />
       </button>
+      
+      
     </div>
   )
 }
