@@ -8,7 +8,8 @@ import ActionProvider from "./components/chatbot/ActionProvider.js";
 import "react-chatbot-kit/build/main.css";
 import "./styles/chatbot.css";
 import "remixicon/fonts/remixicon.css";
-import NetworkGraph from './NetworkGraph'; // NetworkGraph 컴포넌트 가져오기
+import NetworkChart from './NetworkChart.js';
+import data from './json/graphml_data.json';
 
 
 const ownStyles = {
@@ -23,7 +24,6 @@ const HIGHLIGHT_COLORS = ['yellow', 'lightgreen', 'lightblue', 'pink']
 
 const App = () => {
   const [location, setLocation] = useState(null)
-  const [data, setData] = useState(null);
   const [rendition, setRendition] = useState(null);
   const [page, setPage] = useState('')
   const [selections, setSelections] = useState([])
@@ -187,8 +187,8 @@ const App = () => {
       </div>
 
       {/* 오른쪽: Knowledge Graph */}
-      <div style={{ flex: '0 0 50%', position: 'relative', height: '100%' }}>
-        <NetworkGraph width="100%" height="100%" /> {/* 스타일 적용된 NetworkGraph 컴포넌트 */}
+      <div style={{ flex: '0 0 100%', position: 'relative', height: '100%' }}>
+        <NetworkChart data={data} />
       </div>
 
       {/* 챗봇 */}
