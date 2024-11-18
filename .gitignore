@@ -30,6 +30,7 @@ src/parquet/output
 # Python virtual environment
 venv/
 .epubVenv/
+epubVenv/
 
 # Python cache and temporary files
 __pycache__/
@@ -51,3 +52,41 @@ Thumbs.db       # Windows generated files
 
 # Node.js related
 npm-debug.log*
+
+# WebRTC related
+src/webRTC/server/logs/
+*.log
+
+# Socket related
+*.sock
+
+# Media files
+*.mp4
+*.avi
+*.mov
+*.wav
+*.mp3
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+
+# Additional Python related
+*.pkl
+*.h5
+*.model
+.pytest_cache/
+
+# Additional development files
+*.bak
+*.tmp
+*.temp
+.history/
+
+# Additional environment files
+.env
+.env.*
+!.env.example
+.env.development
+.env.production
