@@ -213,8 +213,8 @@ const App = () => {
       <div style={{ flex: '0 0 50%', position: 'relative', height: '100%', overflow: 'hidden' }}>
         {/* 뷰어 선택 버튼 */}
         <div style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 2 }}>
-          <button onClick={() => setViewerType('epub')} style={{ marginRight: '10px' }}>EPUB 보기</button>
-          <button onClick={() => setViewerType('pdf')}>PDF 보기</button>
+          {/* {<button onClick={() => setViewerType('epub')} style={{ marginRight: '10px' }}>EPUB 보기</button>} */}
+          {/* <button onClick={() => setViewerType('pdf')}>PDF 보기</button> */}
         </div>
         {renderViewer()}
       </div>
