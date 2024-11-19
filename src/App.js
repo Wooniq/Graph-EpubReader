@@ -5,12 +5,17 @@ import Chatbot from "react-chatbot-kit";
 import setting from "./components/chatbot/setting.js";
 import MessageParser from "./components/chatbot/MessageParser.js";
 import ActionProvider from "./components/chatbot/ActionProvider.js";
+import { Worker, Viewer } from '@react-pdf-viewer/core';  // PDF 뷰어 임포트
+import '@react-pdf-viewer/core/lib/styles/index.css';     // PDF 뷰어 스타일 임포트
 import "react-chatbot-kit/build/main.css";
 import "./styles/chatbot.css";
 import "remixicon/fonts/remixicon.css";
 import NetworkChart from './NetworkChart.js';
 import data from './json/graphml_data.json';
 
+
+// WebRTC
+import VideoChat from './webRTC/components/VideoChat';
 
 const ownStyles = {
   ...ReactReaderStyle,
@@ -33,6 +38,7 @@ const App = () => {
   const readerRef = useRef(null)
   const [book, setBook] = useState(null)
   const [isOpen, setIsOpen] = useState(false);
+  const [viewerType/*, setViewerType*/] = useState('epub');  // 뷰어 타입 상태 추가
 
   const toggleChatbot = () => {
     setIsOpen(!isOpen); // 버튼을 누를 때마다 열리고 닫히는 상태 토글
@@ -108,82 +114,114 @@ const App = () => {
     }
   }, [rendition])
 
-  return (
-    <div style={{ display: 'flex', height: '100vh' }}>
-      {/* 왼쪽: EPUB Reader */}
-      <div style={{ flex: '0 0 50%', position: 'relative', height: '100%', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '17px', right: '20px', zIndex: 2, display: 'flex', alignItems: 'center' }}>
-          <FaBookmark 
-            onClick={toggleBookmarks}
-            style={{ cursor: 'pointer', fontSize: '20px' }} 
+  // 뷰어 렌더링 함수
+  const renderViewer = () => {
+    if (viewerType === 'epub') {
+      return (
+        <div style={{ position: 'relative', height: '100%', overflow: 'hidden' }}>
+          {/* 기존 EPUB 리더 코드 */}
+          <div style={{ position: 'absolute', top: '17px', right: '20px', zIndex: 2, display: 'flex', alignItems: 'center' }}>
+            <FaBookmark
+              onClick={toggleBookmarks}
+              style={{ cursor: 'pointer', fontSize: '20px' }}
+            />
+          </div>
+          {showBookmarks && (
+            <div style={{ position: 'absolute', top: '40px', right: '20px', maxHeight: '300px', width: '250px', overflowY: 'auto', background: 'white', border: '1px solid #ccc', padding: '10px', zIndex: 2 }}>
+              <div style={{ marginBottom: '10px', display: 'flex', justifyContent: 'space-between' }}>
+                <div>
+                  {HIGHLIGHT_COLORS.map(color => (
+                    <FaPalette
+                      key={color}
+                      onClick={() => changeHighlightColor(color)}
+                      style={{ cursor: 'pointer', marginRight: '5px', color: color }}
+                    />
+                  ))}
+                </div>
+              </div>
+              {selections.map((selection, index) => (
+                <div key={index} style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
+                  <FaBookmark style={{ marginRight: '5px', color: selection.color }} />
+                  <span
+                    onClick={() => rendition.display(selection.cfiRange)}
+                    style={{ cursor: 'pointer', flex: 1 }}
+                  >
+                    {selection.text.slice(0, 30)}...
+                  </span>
+                  <FaTrash
+                    onClick={() => removeHighlight(selection.cfiRange)}
+                    style={{ cursor: 'pointer', marginLeft: '5px' }}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+          <div style={{ position: 'absolute', bottom: '10px', right: '10px', zIndex: 2 }}>
+            {page}
+          </div>
+          <ReactReader
+            url="https://react-reader.metabits.no/files/alice.epub"  // 여기에 미리 지정한 EPUB 파일 경로
+            locationChanged={locationChanged}
+            getRendition={(rendition) => {
+              setRendition(rendition)
+            }}
+            tocChanged={toc => {
+              tocRef.current = toc
+              if (readerRef.current) {
+                readerRef.current.tocChanged = toc
+              }
+            }}
+            epubInitOptions={{
+              openAs: 'epub'
+            }}
+            getBook={(bookInstance) => {
+              setBook(bookInstance)
+              bookInstance.locations.generate(1024).then(() => {
+                if (location) {
+                  updatePageInfo(location)
+                }
+              })
+            }}
+            location={location}
+            epubOptions={{
+              flow: 'paginated',
+              width: '100%',
+              height: '100%',
+              spread: 'always'
+            }}
+            styles={ownStyles}
+            ref={readerRef}
           />
         </div>
-        {showBookmarks && (
-          <div style={{ position: 'absolute', top: '40px', right: '20px', maxHeight: '300px', width: '250px', overflowY: 'auto', background: 'white', border: '1px solid #ccc', padding: '10px', zIndex: 2 }}>
-            <div style={{ marginBottom: '10px', display: 'flex', justifyContent: 'space-between' }}>
-              <div>
-                {HIGHLIGHT_COLORS.map(color => (
-                  <FaPalette
-                    key={color}
-                    onClick={() => changeHighlightColor(color)}
-                    style={{ cursor: 'pointer', marginRight: '5px', color: color }}
-                  />
-                ))}
-              </div>
-            </div>
-            {selections.map((selection, index) => (
-              <div key={index} style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
-                <FaBookmark style={{ marginRight: '5px', color: selection.color }} />
-                <span 
-                  onClick={() => rendition.display(selection.cfiRange)}
-                  style={{ cursor: 'pointer', flex: 1 }}
-                >
-                  {selection.text.slice(0, 30)}...
-                </span>
-                <FaTrash 
-                  onClick={() => removeHighlight(selection.cfiRange)}
-                  style={{ cursor: 'pointer', marginLeft: '5px' }}
-                />
-              </div>
-            ))}
-          </div>
-        )}
-        <div style={{ position: 'absolute', bottom: '10px', right: '10px', zIndex: 2 }}>
-          {page}                                                               
+      );
+    } else if (viewerType === 'pdf') {
+      return (
+        <div style={{ height: '100%', overflow: 'auto' }}>
+          <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.2.146/build/pdf.worker.min.js`}>
+            <Viewer
+              fileUrl="/short_pants.pdf"  // 로컬 서버에 위치한 PDF 파일 경로 설정
+            />
+          </Worker>
         </div>
-        <ReactReader
-          url="https://react-reader.metabits.no/files/alice.epub"
-          locationChanged={locationChanged}
-          getRendition={(rendition) => {
-            setRendition(rendition)
-          }}
-          tocChanged={toc => {
-            tocRef.current = toc
-            if (readerRef.current) {
-              readerRef.current.tocChanged = toc
-            }
-          }}
-          epubInitOptions={{
-            openAs: 'epub'
-          }}
-          getBook={(bookInstance) => {
-            setBook(bookInstance)
-            bookInstance.locations.generate(1024).then(() => {
-              if (location) {
-                updatePageInfo(location)
-              }
-            })
-          }}
-          location={location}
-          epubOptions={{
-            flow: 'paginated',
-            width: '100%',
-            height: '100%',
-            spread: 'always'
-          }}
-          styles={ownStyles}
-          ref={readerRef}
-        />
+      );
+    }
+  };
+
+  return (
+    <div style={{ display: 'flex', height: '100vh' }}>
+      {/* 왼쪽: 문서 뷰어 */}
+      <div style={{ flex: '0 0 50%', position: 'relative', height: '100%', overflow: 'hidden' }}>
+        {/* 뷰어 선택 버튼 */}
+        <div style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 2 }}>
+          {/* {<button onClick={() => setViewerType('epub')} style={{ marginRight: '10px' }}>EPUB 보기</button>} */}
+          {/* <button onClick={() => setViewerType('pdf')}>PDF 보기</button> */}
+        </div>
+        {renderViewer()}
+      </div>
+
+      {/* WebRTC */}
+      <div style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 2 }}>
+        <VideoChat />
       </div>
 
       {/* 오른쪽: Knowledge Graph */}
@@ -194,16 +232,18 @@ const App = () => {
       {/* 챗봇 */}
       {isOpen && (
         <Chatbot
-        config={setting}
-        actionProvider={ActionProvider}
-        messageParser={MessageParser}
-      />
+          config={setting}
+          actionProvider={ActionProvider}
+          messageParser={MessageParser}
+        />
       )}
 
       {/* 챗봇 버튼 */}
       <button className="chatbot-button" onClick={toggleChatbot}>
         <img src="image/network.png" alt="Chatbot Icon" style={{ width: '30px', height: '30px' }} />
       </button>
+      
+      
     </div>
   )
 }
