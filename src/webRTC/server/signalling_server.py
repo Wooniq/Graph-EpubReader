@@ -28,7 +28,7 @@ def handle_connect():
     # 현재 연결된 모든 사용자 수를 확인
     existing_users = len(connected_users)
     
-    # 첫 번째 연결자는 'A', 두 번째 연결자는 'B' 타입으로 지정
+    # 첫 번째 연결자는 'A', 두 번째 연결자는 'B' 타입으로 지��
     client_type = 'A' if existing_users == 0 else 'B'
     
     # 사용자 정보 저장
@@ -79,8 +79,7 @@ def handle_answer(data):
 def handle_ice_candidate(data):
     room = connected_users[request.sid]['room']
     client_type = connected_users[request.sid]['type']
-    logger.info(f'Received ICE candidate from {client_type} in room {room}')
-    # 상대방에게 ICE candidate 정보 전달
+    logger.debug(f'Received ICE candidate from {client_type} in room {room}')
     emit('ice_candidate', data, room=room, skip_sid=request.sid)
 
 # 방 나가기 처리

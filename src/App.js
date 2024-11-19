@@ -38,7 +38,7 @@ const App = () => {
   const readerRef = useRef(null)
   const [book, setBook] = useState(null)
   const [isOpen, setIsOpen] = useState(false);
-  const [viewerType, setViewerType] = useState('epub');  // 뷰어 타입 상태 추가
+  const [viewerType/*, setViewerType*/] = useState('epub');  // 뷰어 타입 상태 추가
 
   const toggleChatbot = () => {
     setIsOpen(!isOpen); // 버튼을 누를 때마다 열리고 닫히는 상태 토글
