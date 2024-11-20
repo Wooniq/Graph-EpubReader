@@ -34,6 +34,13 @@ const VideoChat = () => {
                         setCallStatus(status);
                     }
                 };
+
+                // 원격 스트림 처리를 위한 콜백 추가
+                webRTCRef.current.onRemoteStream = (stream) => {
+                    if (remoteVideoRef.current) {
+                        remoteVideoRef.current.srcObject = stream;
+                    }
+                };
                 
                 // 로컬 비디오 스트림 설정
                 const localStream = await webRTCRef.current.initializeConnection();
@@ -89,16 +96,27 @@ const VideoChat = () => {
 
     return (
         <div className="video-container">
-            <div className="video-wrapper">
-                <div className="video-box">
+            <div className="video-box">
                     <h3>나</h3>
-                    <video ref={localVideoRef} autoPlay playsInline muted />
+                    <video 
+                        ref={localVideoRef} 
+                        autoPlay 
+                        playsInline 
+                        muted 
+                        allow="autoplay; camera; microphone"
+                        sandbox="allow-scripts"
+                    />
                 </div>
                 <div className="video-box">
                     <h3>상대방</h3>
-                    <video ref={remoteVideoRef} autoPlay playsInline />
+                    <video 
+                        ref={remoteVideoRef} 
+                        autoPlay 
+                        playsInline
+                        allow="autoplay; camera; microphone"
+                        sandbox="allow-scripts"
+                    />
                 </div>
-            </div>
             <button 
                 onClick={callStatus === 'inCall' ? handleEndCall : handleStartCall}
                 className={callStatus === 'inCall' ? 'end-call' : 'start-call'}

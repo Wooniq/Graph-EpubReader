@@ -14,7 +14,7 @@ class ActionProvider {
             this.setState((prev) => ({ ...prev, messages: [...prev.messages, loading], }))
 
             // 서버에 요청 보내기
-            const response = await fetch('http://localhost:3000/run-query', {
+            const response = await fetch('http://113.198.85.7:80/run-query', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
