@@ -1,0 +1,16 @@
+graphrag
+neo4j
+langchain
+langchain-community
+langchain-openai
+openai
+python-dotenv
+future
+result
+EbookLib
+beautifulsoup4
+flask
+flask-cors
+flask-socketio
+python-engineio==4.8.0
+python-socketio==5.11.0

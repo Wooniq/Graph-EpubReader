@@ -1,0 +1,814 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d13" for="edge" attr.name="level" attr.type="long" />
+  <key id="d12" for="edge" attr.name="human_readable_id" attr.type="long" />
+  <key id="d11" for="edge" attr.name="id" attr.type="string" />
+  <key id="d10" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="d9" for="edge" attr.name="description" attr.type="string" />
+  <key id="d8" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d7" for="node" attr.name="id" attr.type="string" />
+  <key id="d6" for="node" attr.name="human_readable_id" attr.type="long" />
+  <key id="d5" for="node" attr.name="degree" attr.type="long" />
+  <key id="d4" for="node" attr.name="level" attr.type="long" />
+  <key id="d3" for="node" attr.name="cluster" attr.type="string" />
+  <key id="d2" for="node" attr.name="source_id" attr.type="string" />
+  <key id="d1" for="node" attr.name="description" attr.type="string" />
+  <key id="d0" for="node" attr.name="type" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="STARKEY">
+      <data key="d0">PERSON</data>
+      <data key="d1">Starkey is a pirate known for his adventures and misfortunes in the world of Neverland. He notably escapes from perilous situations but finds himself captured by the redskins, where he is tasked with nursing their children. In addition to his escapades, Starkey is observant and cautious, as seen when he, alongside Captain Hook, noticed the Never bird. He expressed suspicion towards the bird's intentions, showcasing his wary nature. Despite his rough exterior and the dangerous life he leads, his experiences range from engaging in piracy to interacting closely with other inhabitants of Neverland, revealing a complex character navigating through his unique circumstances.</data>
+      <data key="d2">e1cd6306d3740d487b902373b7e1d1c4,f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d3">2</data>
+      <data key="d4">0</data>
+      <data key="d5">3</data>
+      <data key="d6">0</data>
+      <data key="d7">16ff0499cbd1468e940102c818479029</data>
+    </node>
+    <node id="NEVER BIRD">
+      <data key="d0">PERSON</data>
+      <data key="d1">The Never bird is sitting on its nest floating on the lagoon, observed by the pirates</data>
+      <data key="d2">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d3">2</data>
+      <data key="d4">0</data>
+      <data key="d5">1</data>
+      <data key="d6">1</data>
+      <data key="d7">84b11ba377bb40f39661ac1f047e9d32</data>
+    </node>
+    <node id="HOOK">
+      <data key="d0">PERSON</data>
+      <data key="d1">Captain Hook is a pirate captain, known for his cunning and vengefulness, particularly as the antagonist to Peter Pan. He often contemplates complex emotions and intentions, such as considering the loyalty of the Never bird to its eggs. This contemplative nature also leads him to devise plans driven by his emotions, including his scheme to kidnap Wendy and the boys. Despite his conflicts, Hook's actions are consistently characterized by his desire to outwit his adversaries, showcasing his complex personality that intertwines his cunning nature with his emotional depth.</data>
+      <data key="d2">503485ae5e8674ea5073c507a269f571,f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d3">2</data>
+      <data key="d4">0</data>
+      <data key="d5">8</data>
+      <data key="d6">2</data>
+      <data key="d7">d72c3c1e4beb4fad82d650cfe965eb4e</data>
+    </node>
+    <node id="SMEE">
+      <data key="d0">PERSON</data>
+      <data key="d1">SMEE is a pirate known for wandering the world while claiming to be the only man James Hook feared. He is characterized by his willingness to follow through with dark plans, as evidenced by his suggestion to kidnap the boys' mother to make her their own, demonstrating his compliance with Hook's orders. Smee's reputation and actions paint him as a loyal but morally ambiguous character within the pirate crew, willing to undertake any task to serve his captain's desires.</data>
+      <data key="d2">e1cd6306d3740d487b902373b7e1d1c4,f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d3">2</data>
+      <data key="d4">0</data>
+      <data key="d5">3</data>
+      <data key="d6">3</data>
+      <data key="d7">9fdb092f31ca47bdbeb155d36813d56c</data>
+    </node>
+    <node id="WENDY">
+      <data key="d0">PERSON</data>
+      <data key="d1">Wendy, once a child acquainted with Peter Pan and one of the Darling children, has grown into a woman who has embraced adulthood with its responsibilities. She is now married and has a daughter named Jane, to whom she recounts her childhood adventures in Neverland. Wendy's experiences with Peter Pan, the Lost Boys, and her encounters with pirates have shaped her into a nurturing figure, embodying motherly care and comfort not only towards her own children but also towards Peter and the Lost Boys during her time in Neverland. Her role extended to observing battles and taking care of the children, even in the pirates' bunks, showcasing her protective and caring nature. Wendy's storytelling is a significant aspect of her character, as she shares tales of adventure, reflecting on the nature of a mother's love and the essence of her experiences. Captain Hook, recognizing her maternal qualities, schemed to kidnap her and the boys, intending to make her the pirates' mother, highlighting her perceived role as a caregiver. Wendy's journey from a child expected to return home with excitement to a grown woman who reminisces about her past adventures illustrates her development from an adventurous girl to a reflective, loving mother.</data>
+      <data key="d2">26e6868c1dc7d337df123d48cce03dc7,503485ae5e8674ea5073c507a269f571,72abf0c0ea6a8fb3a19336e53e60903d,86bcf729192972ba2b7fda011c2aa0d1,e1cd6306d3740d487b902373b7e1d1c4,f6a9c779a27d841a3473e845379db1e5,fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d3">3</data>
+      <data key="d4">0</data>
+      <data key="d5">13</data>
+      <data key="d6">4</data>
+      <data key="d7">cafbd6a8a3044be69aa35482053169b3</data>
+    </node>
+    <node id="TIGER LILY">
+      <data key="d0">PERSON</data>
+      <data key="d1">Tiger Lily was mentioned by Hook, questioning her whereabouts, indicating she had been previously captured by the pirates but let go</data>
+      <data key="d2">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d3">2</data>
+      <data key="d4">0</data>
+      <data key="d5">2</data>
+      <data key="d6">5</data>
+      <data key="d7">d9c615e0143a455d9a8eb8fb56b6ac0e</data>
+    </node>
+    <node id="PETER">
+      <data key="d0">PERSON</data>
+      <data key="d1">Peter Pan, the leader of the Lost Boys, is known for his carefree and adventurous nature, which often leads him into conflict with Hook. In one of his clever exploits, he impersonates Hook's voice, successfully tricking Hook and the pirates during their conversation about the Never bird and their plans. This act showcases Peter's cunning and resourceful side. Additionally, Peter shares a bitter experience with his own mother, challenging Wendy's views on maternal love. This reveals a more complex and vulnerable aspect of his character, contrasting with his usual fearless and playful demeanor. Through these actions and experiences, Peter Pan embodies the spirit of adventure and the complexities of youth.</data>
+      <data key="d2">503485ae5e8674ea5073c507a269f571,86bcf729192972ba2b7fda011c2aa0d1,f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d3">2</data>
+      <data key="d4">0</data>
+      <data key="d5">6</data>
+      <data key="d6">6</data>
+      <data key="d7">89089274bb7a44abb01472fe7c702fde</data>
+    </node>
+    <node id="JOLLY ROGER">
+      <data key="d0" />
+      <data key="d1" />
+      <data key="d2">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d3">2</data>
+      <data key="d4">0</data>
+      <data key="d5">4</data>
+      <data key="d6">7</data>
+      <data key="d7">bfbc45b162c14fd7b1e4c2824d09e918</data>
+    </node>
+    <node id="NIBS">
+      <data key="d0">PERSON</data>
+      <data key="d1">Nibs is identified as one of the Lost Boys, serving as the first mate under Captain Pan's command. He is known for his curiosity about the stories Wendy tells, showcasing his interest and engagement with the tales she shares. As a key member of the group, Nibs plays a significant role in the adventures and dynamics of the Lost Boys, under the leadership of Captain Pan.</data>
+      <data key="d2">86bcf729192972ba2b7fda011c2aa0d1,e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d3">3</data>
+      <data key="d4">0</data>
+      <data key="d5">2</data>
+      <data key="d6">8</data>
+      <data key="d7">adcb0a6f852f4687ba1628da4d1a22db</data>
+    </node>
+    <node id="JOHN">
+      <data key="d0">PERSON</data>
+      <data key="d1">John is portrayed as a bearded man, highlighting his maturity and fatherhood, yet he finds himself at a loss for stories to share with his children, suggesting a disconnect from the adventurous spirit of his youth. He is also depicted as one of the characters who matures into adulthood and returns to the window with Wendy and Michael, indicating his deep connection to the Darling family and their shared experiences. As one of the Darling children, John's return home is anticipated with excitement, underscoring his importance and the joy his presence brings. Furthermore, John serves as the second mate under Captain Pan aboard the ship, showcasing his adventurous side and responsibilities in a fantastical setting. This combination of roles&#8212;father, adventurer, and loyal crew member&#8212;paints a comprehensive picture of John as a character who bridges the mundane with the magical, embodying both the responsibilities of adulthood and the wonder of youth.</data>
+      <data key="d2">26e6868c1dc7d337df123d48cce03dc7,86bcf729192972ba2b7fda011c2aa0d1,e1cd6306d3740d487b902373b7e1d1c4,fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d3">4</data>
+      <data key="d4">0</data>
+      <data key="d5">6</data>
+      <data key="d6">9</data>
+      <data key="d7">1eeefa071ad04fa595887a1ed98d541f</data>
+    </node>
+    <node id="MICHAEL">
+      <data key="d0">PERSON</data>
+      <data key="d1">Michael, one of the Darling children, is notably mentioned alongside John, indicating their close relationship and shared experiences. He is part of an adventurous narrative where he and John grow and return to the window with Wendy, highlighting a journey that they have undertaken together. This journey back home is anticipated with excitement, suggesting that their adventures were both thrilling and fulfilling. Michael's bravery and participation in conflict are underscored by his act of showing Wendy where he killed one, implying his active involvement in a battle. This detail not only adds depth to his character but also showcases his willingness to engage in dangerous situations. Overall, Michael emerges as a courageous and adventurous individual, deeply connected to his siblings and their shared experiences.</data>
+      <data key="d2">26e6868c1dc7d337df123d48cce03dc7,86bcf729192972ba2b7fda011c2aa0d1,e1cd6306d3740d487b902373b7e1d1c4,fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d3">4</data>
+      <data key="d4">0</data>
+      <data key="d5">5</data>
+      <data key="d6">10</data>
+      <data key="d7">d99476412b3442e7a49fc7f440f280f3</data>
+    </node>
+    <node id="LOST BOYS">
+      <data key="d0">ORGANIZATION</data>
+      <data key="d1">The Lost Boys are a group of boys residing in Neverland who greatly admire Peter Pan and Wendy. They often contemplate the idea of returning home, showcasing their adventurous yet nostalgic nature. These characters are central to the narrative, embodying themes of youth, freedom, and the complexities of growing up.</data>
+      <data key="d2">86bcf729192972ba2b7fda011c2aa0d1,e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d3">3</data>
+      <data key="d4">0</data>
+      <data key="d5">4</data>
+      <data key="d6">11</data>
+      <data key="d7">be73f0665aef4720930cef1cc9790029</data>
+    </node>
+    <node id="TOOTLES">
+      <data key="d0">PERSON</data>
+      <data key="d1">Tootles is a multifaceted character who initially appears as the bo&#8217;sun among the crew, known for his habit of chewing tobacco and wielding a rope&#8217;s end. Despite being identified as the silliest of the Lost Boys, Tootles exhibits significant dignity and leadership qualities, especially when Wendy's safety is threatened. This complexity of character is further underscored by his life after the main story, where Tootles has risen to the position of a judge. This transition not only highlights his professional and social status but also marks a significant evolution from his earlier portrayal, showcasing his growth and development as a character.</data>
+      <data key="d2">26e6868c1dc7d337df123d48cce03dc7,86bcf729192972ba2b7fda011c2aa0d1,e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d3">3</data>
+      <data key="d4">0</data>
+      <data key="d5">5</data>
+      <data key="d6">12</data>
+      <data key="d7">dde711aa2fdf473398ca83b409204379</data>
+    </node>
+    <node id="REDSKINS">
+      <data key="d0">ORGANIZATION</data>
+      <data key="d1">A group given instructions by Peter, possibly indicating his leadership and influence over them in Neverland</data>
+      <data key="d2">86bcf729192972ba2b7fda011c2aa0d1</data>
+      <data key="d3">2</data>
+      <data key="d4">0</data>
+      <data key="d5">1</data>
+      <data key="d6">13</data>
+      <data key="d7">9346522a72bd43ab9ef82b62fd5f9d86</data>
+    </node>
+    <node id="LONDON STATION">
+      <data key="d0" />
+      <data key="d1" />
+      <data key="d2">86bcf729192972ba2b7fda011c2aa0d1</data>
+      <data key="d3">3</data>
+      <data key="d4">0</data>
+      <data key="d5">1</data>
+      <data key="d6">14</data>
+      <data key="d7">221b72a853e740a183b95eed5488703e</data>
+    </node>
+    <node id="SLIGHTLY">
+      <data key="d0">PERSON</data>
+      <data key="d1">Slightly is a member of the Lost Boys, a group known for their adventures and association with Peter Pan. He is particularly noted for his role in singing out the count of those who perished, marking a somber aspect of his character amidst the group's otherwise youthful and carefree existence. Slightly is also associated with trees, and it is suggested that he may have his own tree house, indicating a close connection with the natural world and a sense of independence within the group. Furthermore, Slightly's life takes a significant turn as he is mentioned to have married a lady of title, thereby becoming a lord. This transition shows his social ascent from the adventurous but humble beginnings with the Lost Boys to a position of status and responsibility in society.</data>
+      <data key="d2">26e6868c1dc7d337df123d48cce03dc7,503485ae5e8674ea5073c507a269f571,e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d3">4</data>
+      <data key="d4">0</data>
+      <data key="d5">3</data>
+      <data key="d6">15</data>
+      <data key="d7">3dd36644193c421f84f58a2af66bb5b7</data>
+    </node>
+    <node id="THE LITTLE HOUSE">
+      <data key="d0" />
+      <data key="d1" />
+      <data key="d2">503485ae5e8674ea5073c507a269f571</data>
+      <data key="d3">2</data>
+      <data key="d4">0</data>
+      <data key="d5">2</data>
+      <data key="d6">16</data>
+      <data key="d7">2dadb91497f3429b8455ad5c9aaaff0f</data>
+    </node>
+    <node id="JAMES HOOK">
+      <data key="d0">PERSON</data>
+      <data key="d1">A pirate captain who faces Peter Pan in a final battle and is eventually taken by a crocodile</data>
+      <data key="d2">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d3">1</data>
+      <data key="d4">0</data>
+      <data key="d5">2</data>
+      <data key="d6">17</data>
+      <data key="d7">1efa15e74632438690e427c18a80ee79</data>
+    </node>
+    <node id="PETER PAN">
+      <data key="d0">PERSON</data>
+      <data key="d1">Peter Pan is a central character renowned for his perpetual youth and refusal to grow up. He is known for his remarkable ability to fly and his thrilling adventures in Neverland, where he leads the Lost Boys and engages in battles against his nemesis, James Hook. Peter visits Wendy, only to be shocked to find that she has aged and become a mother, a concept foreign to him due to his eternal youth. Despite this, he remains a figure of fond memories for Wendy and sparks curiosity in Jane, Wendy's daughter. Peter Pan's story is a blend of whimsy, adventure, and the poignant reminder of the innocence and escapades of childhood.</data>
+      <data key="d2">26e6868c1dc7d337df123d48cce03dc7,72abf0c0ea6a8fb3a19336e53e60903d,e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d3">3</data>
+      <data key="d4">0</data>
+      <data key="d5">7</data>
+      <data key="d6">18</data>
+      <data key="d7">e343b7d225fd49edb685abf9855ca3ce</data>
+    </node>
+    <node id="CROCODILE">
+      <data key="d0">PERSON</data>
+      <data key="d1">Waits for James Hook and eventually takes him, marking Hook's end</data>
+      <data key="d2">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d3">1</data>
+      <data key="d4">0</data>
+      <data key="d5">1</data>
+      <data key="d6">19</data>
+      <data key="d7">12280e653e5548d9bf2ec3ba7c867c41</data>
+    </node>
+    <node id="CREW">
+      <data key="d0" />
+      <data key="d1" />
+      <data key="d2">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d3">0</data>
+      <data key="d4">0</data>
+      <data key="d5">2</data>
+      <data key="d6">20</data>
+      <data key="d7">445dbbf5a5344b87bcf31021631288e3</data>
+    </node>
+    <node id="AZORES">
+      <data key="d0">GEO</data>
+      <data key="d1">The destination Captain Pan calculates they should reach by the 21st of June</data>
+      <data key="d2">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d3">0</data>
+      <data key="d4">0</data>
+      <data key="d5">1</data>
+      <data key="d6">21</data>
+      <data key="d7">7a60dcdd73d442c3bc590958a9b7b22a</data>
+    </node>
+    <node id="CAPTAIN PAN">
+      <data key="d0" />
+      <data key="d1" />
+      <data key="d2">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d3">0</data>
+      <data key="d4">0</data>
+      <data key="d5">3</data>
+      <data key="d6">22</data>
+      <data key="d7">3f6f66f72bc2457d9328377e18a00e83</data>
+    </node>
+    <node id="MRS. DARLING">
+      <data key="d0">PERSON</data>
+      <data key="d1">Mrs. Darling, now deceased, was a character deeply involved in the care and concern for her children, showing both worry and anticipation for their return. She was Wendy's mother and is mentioned as part of the past family context, highlighting her significant role in her children's lives even after her passing.</data>
+      <data key="d2">26e6868c1dc7d337df123d48cce03dc7,fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d3">4</data>
+      <data key="d4">0</data>
+      <data key="d5">4</data>
+      <data key="d6">23</data>
+      <data key="d7">33c3c45c539d44e2b5a2f2fc1c3797d4</data>
+    </node>
+    <node id="MR. DARLING">
+      <data key="d0">PERSON</data>
+      <data key="d1">A character who feels deeply responsible for his children's safety to the extent of punishing himself by staying in the kennel</data>
+      <data key="d2">fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d3">4</data>
+      <data key="d4">0</data>
+      <data key="d5">2</data>
+      <data key="d6">24</data>
+      <data key="d7">aaa34ce35b324a0ca868b932abf9aff2</data>
+    </node>
+    <node id="NANA">
+      <data key="d0">PERSON</data>
+      <data key="d1">NANA was the family's nurse, a character deeply remembered for her dedicated role in looking after the children. She is treated with a level of personification that underscores her significant caretaker's role within the family. By the time the story unfolds, NANA has passed away, leaving behind a legacy of nurturing and care that continues to impact the family.</data>
+      <data key="d2">26e6868c1dc7d337df123d48cce03dc7,fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d3">4</data>
+      <data key="d4">0</data>
+      <data key="d5">2</data>
+      <data key="d6">25</data>
+      <data key="d7">5f39b5d9a1ce4399af33412b4e7b764d</data>
+    </node>
+    <node id="THE SHIP">
+      <data key="d0" />
+      <data key="d1" />
+      <data key="d2">fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d3">4</data>
+      <data key="d4">0</data>
+      <data key="d5">3</data>
+      <data key="d6">26</data>
+      <data key="d7">8cc7dda74b0b4cbcae5c13bfa946f7c8</data>
+    </node>
+    <node id="JANE">
+      <data key="d0">PERSON</data>
+      <data key="d1">Jane, Wendy's daughter, is deeply fascinated by Peter Pan and the adventures her mother experienced. She inherits the nursery, showcasing a keen interest in flying and the tales of Peter Pan's escapades. This curiosity about Peter Pan and his adventures extends to a willingness to fly away with him, indicating a strong desire to partake in similar adventures herself. Jane's connection to her mother's past and the magical world of Peter Pan forms a significant part of her character, blending her inherited environment with her aspirations and dreams.</data>
+      <data key="d2">26e6868c1dc7d337df123d48cce03dc7,72abf0c0ea6a8fb3a19336e53e60903d</data>
+      <data key="d3">3</data>
+      <data key="d4">0</data>
+      <data key="d5">2</data>
+      <data key="d6">27</data>
+      <data key="d7">047fac3291af4adf994411b157d14bf1</data>
+    </node>
+    <node id="NEVERLAND">
+      <data key="d0">GEO</data>
+      <data key="d1">A magical island where Peter Pan lives and adventures happen, a place where one does not grow up</data>
+      <data key="d2">72abf0c0ea6a8fb3a19336e53e60903d</data>
+      <data key="d3">3</data>
+      <data key="d4">0</data>
+      <data key="d5">1</data>
+      <data key="d6">28</data>
+      <data key="d7">e4db58f1df9d4435b4a161e277c9cf49</data>
+    </node>
+    <node id="SPRING CLEANING">
+      <data key="d0" />
+      <data key="d1" />
+      <data key="d2">72abf0c0ea6a8fb3a19336e53e60903d</data>
+      <data key="d3">3</data>
+      <data key="d4">0</data>
+      <data key="d5">1</data>
+      <data key="d6">29</data>
+      <data key="d7">e517dc232dcb471084373ae0d5a444c7</data>
+    </node>
+    <node id="PROJECT GUTENBERG">
+      <data key="d0">ORGANIZATION</data>
+      <data key="d1">A mission focused on promoting free access to electronic works, allowing sharing in compliance with its terms, and keeping the Project Gutenberg name associated with the work</data>
+      <data key="d2">b30e77cdc55f45165aeed8d44d5f6814</data>
+      <data key="d5">3</data>
+      <data key="d6">30</data>
+      <data key="d7">bcf599e13ee749fabc491272dafd146f</data>
+    </node>
+    <node id="UNITED STATES">
+      <data key="d0">GEO</data>
+      <data key="d1">Country mentioned in relation to copyright laws and the primary location where Project Gutenberg operates</data>
+      <data key="d2">b30e77cdc55f45165aeed8d44d5f6814</data>
+      <data key="d5">2</data>
+      <data key="d6">31</data>
+      <data key="d7">3d5e1e43034c464c980bd91f0befcc10</data>
+    </node>
+    <node id="PROJECT GUTENBERG LITERARY ARCHIVE FOUNDATION">
+      <data key="d0">ORGANIZATION</data>
+      <data key="d1">The Project Gutenberg Literary Archive Foundation is an organization intricately associated with Project Gutenberg. It plays a crucial role in the collection, copyright research, transcription, and proofreading of Project Gutenberg&#8482; electronic works, ensuring that these literary pieces are accurately preserved and accessible. Additionally, the foundation is responsible for receiving donations and royalty payments, which support its mission and enable the continuation and expansion of its valuable work. Through these efforts, the foundation contributes significantly to the dissemination and preservation of literary works in the digital age.</data>
+      <data key="d2">0eaf41d19bcc7da0bcb4a17625651951,b30e77cdc55f45165aeed8d44d5f6814</data>
+      <data key="d5">2</data>
+      <data key="d6">32</data>
+      <data key="d7">ee8b74f81ad247bdaafe2e486210eb0a</data>
+    </node>
+    <node id="COPYRIGHT LAWS">
+      <data key="d0" />
+      <data key="d1" />
+      <data key="d2">b30e77cdc55f45165aeed8d44d5f6814</data>
+      <data key="d5">2</data>
+      <data key="d6">33</data>
+      <data key="d7">daaaf2a7e1974565b868426e4926e338</data>
+    </node>
+    <node id="PROJECT GUTENBERG&#8482;">
+      <data key="d0">ORGANIZATION</data>
+      <data key="d1">A collection of free electronic works distributed under specific terms, associated with the Project Gutenberg Literary Archive Foundation</data>
+      <data key="d2">0eaf41d19bcc7da0bcb4a17625651951</data>
+      <data key="d5">2</data>
+      <data key="d6">34</data>
+      <data key="d7">b43083ed12be4a879cb458f8ec3af2bb</data>
+    </node>
+    <node id="U.S. COPYRIGHT LAW">
+      <data key="d0" />
+      <data key="d1" />
+      <data key="d2">0eaf41d19bcc7da0bcb4a17625651951</data>
+      <data key="d5">1</data>
+      <data key="d6">35</data>
+      <data key="d7">7bf65de2687d437c88dc9bc38f12e682</data>
+    </node>
+    <edge source="STARKEY" target="HOOK">
+      <data key="d8">5.0</data>
+      <data key="d9">Hook and Starkey discuss the Never bird and its potential connection to Peter</data>
+      <data key="d10">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">02e112165c85475196cbd65c6f965bcb</data>
+      <data key="d12">0</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="STARKEY" target="NEVER BIRD">
+      <data key="d8">1.0</data>
+      <data key="d9">Starkey observes the Never bird and speculates on its intentions, showing a connection to the ongoing events</data>
+      <data key="d10">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">0b4d52d659c44f3f9103c1ae9a8dd65f</data>
+      <data key="d12">1</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="STARKEY" target="JOLLY ROGER">
+      <data key="d8">6.0</data>
+      <data key="d9">Starkey, being a pirate under Hook's command, is associated with the Jolly Roger</data>
+      <data key="d10">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">97844188d2234088bf48ffac09026594</data>
+      <data key="d12">2</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="HOOK" target="SMEE">
+      <data key="d8">8.0</data>
+      <data key="d9">Hook and Smee discuss and plan the kidnapping of Wendy and the boys</data>
+      <data key="d10">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">ed1ea20de8684c37926d3e1d87232f2b</data>
+      <data key="d12">3</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="HOOK" target="WENDY">
+      <data key="d8">9.0</data>
+      <data key="d9">Hook plans to make Wendy the mother of the pirates by kidnapping her</data>
+      <data key="d10">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">9851d49183d74c97a2c85377b8280663</data>
+      <data key="d12">4</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="HOOK" target="TIGER LILY">
+      <data key="d8">4.0</data>
+      <data key="d9">Hook inquires about Tiger Lily's whereabouts, indicating a previous encounter</data>
+      <data key="d10">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">642f34e7c0274c1fbe5b85d9ec2ecfdf</data>
+      <data key="d12">5</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="HOOK" target="PETER">
+      <data key="d8">18.0</data>
+      <data key="d9">Hook and Peter are central figures in a narrative characterized by a complex relationship marked by rivalry and conflicting emotions. Hook, upon finding Peter asleep, experiences a moment of introspection where he contemplates his feelings of compassion towards Peter, juxtaposed against a deep-seated hatred. This moment of vulnerability highlights the nuanced nature of Hook's feelings towards his adversary. However, the dynamic between them is further complicated by an incident where Peter tricks Hook by impersonating Hook's voice, underscoring the rivalry that defines their interactions. This act of deception by Peter not only reveals the cunning and resourceful aspects of his character but also exacerbates the antagonism between him and Hook. Together, these incidents paint a picture of a relationship fueled by both personal animosity and begrudging respect, illustrating the complex interplay of emotions and rivalry that exists between Hook and Peter.</data>
+      <data key="d10">503485ae5e8674ea5073c507a269f571,f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">6c11572435e641709c779d664b69cf3c</data>
+      <data key="d12">6</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="HOOK" target="JOLLY ROGER">
+      <data key="d8">9.0</data>
+      <data key="d9">Hook is the captain of the Jolly Roger, indicating a leadership and operational role</data>
+      <data key="d10">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">190742a352184750b0e8d35a54c7a80a</data>
+      <data key="d12">7</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="HOOK" target="SLIGHTLY">
+      <data key="d8">1.0</data>
+      <data key="d9">Hook tiptoes to Slightly's tree, indicating a direct interaction or conflict with Slightly's domain</data>
+      <data key="d10">503485ae5e8674ea5073c507a269f571</data>
+      <data key="d11">a65df1e28c5942e88966369917042c83</data>
+      <data key="d12">8</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="HOOK" target="THE LITTLE HOUSE">
+      <data key="d8">6.0</data>
+      <data key="d9">The little house's appearance and its defiance through the smoke issued from its chimney angered Hook, indicating a direct impact on Hook's emotions and actions</data>
+      <data key="d10">503485ae5e8674ea5073c507a269f571</data>
+      <data key="d11">01e36c4f33a04c0381c39399386d89d8</data>
+      <data key="d12">9</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="SMEE" target="TIGER LILY">
+      <data key="d8">3.0</data>
+      <data key="d9">Smee complacently mentions letting Tiger Lily go, following what he believed were Hook's orders</data>
+      <data key="d10">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">a21f0f46885d4ca8a6d4e1bcd65af2bf</data>
+      <data key="d12">10</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="SMEE" target="JOLLY ROGER">
+      <data key="d8">7.0</data>
+      <data key="d9">Smee, as a member of Hook's crew, serves aboard the Jolly Roger</data>
+      <data key="d10">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">5b3a0202996a40c8aa12ab1c96274657</data>
+      <data key="d12">11</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="PETER">
+      <data key="d8">21.0</data>
+      <data key="d9">Wendy and Peter share a deep and complex relationship, marked by significant emotional interdependence and shared experiences. Peter's decision not to take his medicine as a way to grieve Wendy underscores the profound impact Wendy's actions and feelings have on him, highlighting the closeness of their bond. This connection is further evidenced by how Peter's actions, including conversations and plans, often indirectly involve Wendy, especially in situations as dire as her kidnapping. Their discussions about the nature of mothers reveal another layer of their relationship, providing insight into Peter's painful past experiences. Through these interactions, Wendy and Peter navigate their connection, which is built on mutual care, shared challenges, and a deep understanding of each other's vulnerabilities and strengths.</data>
+      <data key="d10">503485ae5e8674ea5073c507a269f571,86bcf729192972ba2b7fda011c2aa0d1,f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">f65d2b954c6e44a081055d8fe29edf97</data>
+      <data key="d12">12</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="NIBS">
+      <data key="d8">5.0</data>
+      <data key="d9">Wendy engages Nibs in conversation about the stories she tells</data>
+      <data key="d10">86bcf729192972ba2b7fda011c2aa0d1</data>
+      <data key="d11">3ecfc2aaf85940d5876e681d2c855960</data>
+      <data key="d12">13</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="JOHN">
+      <data key="d8">13.0</data>
+      <data key="d9">Wendy and John are siblings who are closely associated with each other, particularly in the context of their narrative of returning home. Their relationship is characterized by collective planning and anticipation for this journey back to their home, indicating a strong bond and shared purpose between them. This connection underscores the importance of their familial ties and their mutual involvement in the storyline of their return.</data>
+      <data key="d10">86bcf729192972ba2b7fda011c2aa0d1,fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d11">a20aeee13b704799b2689e1c7c4cae6e</data>
+      <data key="d12">14</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="MICHAEL">
+      <data key="d8">17.0</data>
+      <data key="d9">Wendy and Michael are siblings who share a strong bond, as evidenced by their collective planning and anticipation for returning home. This connection is further highlighted through their interactions, particularly during moments of conflict or battle, where Wendy shows a keen interest in Michael's actions. Their relationship is a central part of the narrative, emphasizing the theme of returning home and the importance of family ties in overcoming challenges. Together, Wendy and Michael navigate their journey, supporting each other through various trials with the ultimate goal of returning home.</data>
+      <data key="d10">86bcf729192972ba2b7fda011c2aa0d1,e1cd6306d3740d487b902373b7e1d1c4,fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d11">224950d892ed4fe5ac1a4435f187ce8b</data>
+      <data key="d12">15</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="LOST BOYS">
+      <data key="d8">7.0</data>
+      <data key="d9">Wendy is seen as a maternal or sisterly figure to the Lost Boys, contemplating their return home</data>
+      <data key="d10">86bcf729192972ba2b7fda011c2aa0d1</data>
+      <data key="d11">0d738bcbaac04e76ae7c952120007931</data>
+      <data key="d12">16</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="TOOTLES">
+      <data key="d8">8.0</data>
+      <data key="d9">Tootles stands up for Wendy when the Lost Boys threaten her, showing loyalty and protection</data>
+      <data key="d10">86bcf729192972ba2b7fda011c2aa0d1</data>
+      <data key="d11">5e4fde2d2d72419c9599fdb0527aaef9</data>
+      <data key="d12">17</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="LONDON STATION">
+      <data key="d8">5.0</data>
+      <data key="d9">Wendy arrives at London Station, marking her return to the place associated with her family and past</data>
+      <data key="d10">86bcf729192972ba2b7fda011c2aa0d1</data>
+      <data key="d11">7d9cfcded29e4735acc215643db87cdc</data>
+      <data key="d12">18</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="PETER PAN">
+      <data key="d8">22.0</data>
+      <data key="d9">Wendy and Peter Pan have a history filled with adventures from Wendy's childhood, a time she fondly reminisces about. Their past is characterized by the magical experiences they shared, including engaging battles and interactions with the Lost Boys. However, their reunion is tinged with the bittersweet reality of Wendy's transition into adulthood, which casts a shadow over the innocence and freedom of their earlier escapades. Despite the changes brought about by time, the bond between Wendy and Peter Pan, forged through their shared adventures, remains a poignant reminder of their unique connection.</data>
+      <data key="d10">26e6868c1dc7d337df123d48cce03dc7,72abf0c0ea6a8fb3a19336e53e60903d,e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d11">c9df250da325409e8cbd814ece635bec</data>
+      <data key="d12">19</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="MRS. DARLING">
+      <data key="d8">14.0</data>
+      <data key="d9">Mrs. Darling is the mother of Wendy, establishing a parental relationship that links their family history. This connection highlights the familial bond and lineage between Wendy and Mrs. Darling, underscoring the importance of their relationship within their family's narrative.</data>
+      <data key="d10">26e6868c1dc7d337df123d48cce03dc7,fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d11">775d168fa374499780e038b1103e641d</data>
+      <data key="d12">20</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="THE SHIP">
+      <data key="d8">5.0</data>
+      <data key="d9">Wendy, along with her brothers, planned their return on the ship, indicating a connection to their adventure</data>
+      <data key="d10">fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d11">68d2b0c72c8f4b7a84966c39d5871147</data>
+      <data key="d12">21</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="JANE">
+      <data key="d8">19.0</data>
+      <data key="d9">Wendy is Jane's mother, and their relationship is marked by a deep bond and shared experiences. Wendy shares stories of her past adventures with Jane, creating a nurturing environment filled with tales and lessons. As Jane becomes interested in Peter Pan's world, they share a moment of transition, highlighting the evolving nature of their relationship. This moment signifies Jane's growing curiosity and Wendy's role in guiding her through these new interests, bridging the past with the future through storytelling and shared experiences.</data>
+      <data key="d10">26e6868c1dc7d337df123d48cce03dc7,72abf0c0ea6a8fb3a19336e53e60903d</data>
+      <data key="d11">6473b5e6920a4149be03afea9ea6e949</data>
+      <data key="d12">22</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="WENDY" target="NANA">
+      <data key="d8">1.0</data>
+      <data key="d9">Nana was the nurse who looked after Wendy and her siblings, indicating a past caregiving relationship.</data>
+      <data key="d10">26e6868c1dc7d337df123d48cce03dc7</data>
+      <data key="d11">5de44bef76b74e1881fa07f9f41d2349</data>
+      <data key="d12">23</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PETER" target="JOLLY ROGER">
+      <data key="d8">1.0</data>
+      <data key="d9">Peter Pan's interactions and confrontation with Hook indirectly involve the Jolly Roger as the pirates' base</data>
+      <data key="d10">f6a9c779a27d841a3473e845379db1e5</data>
+      <data key="d11">d6be8fde3d454cfb8cbd098f2fa01495</data>
+      <data key="d12">24</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PETER" target="LOST BOYS">
+      <data key="d8">9.0</data>
+      <data key="d9">Peter leads the Lost Boys and shares his views, influencing their perception of mothers</data>
+      <data key="d10">86bcf729192972ba2b7fda011c2aa0d1</data>
+      <data key="d11">6bea142c25984e15aa8a2081918e862e</data>
+      <data key="d12">25</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PETER" target="REDSKINS">
+      <data key="d8">1.0</data>
+      <data key="d9">Peter gives instructions to the Redskins, showing his authority and their role in his plans</data>
+      <data key="d10">86bcf729192972ba2b7fda011c2aa0d1</data>
+      <data key="d11">94d52ff4fa714fb497dc2526833dc020</data>
+      <data key="d12">26</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PETER" target="THE LITTLE HOUSE">
+      <data key="d8">1.0</data>
+      <data key="d9">The little house, by emitting smoke, inadvertently did Peter a bad service by drying up any pity Hook might have had for him</data>
+      <data key="d10">503485ae5e8674ea5073c507a269f571</data>
+      <data key="d11">fda7ffdede914eb680b7bbb2d4273db7</data>
+      <data key="d12">27</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="NIBS" target="JOHN">
+      <data key="d8">1.0</data>
+      <data key="d9">Nibs and John serve as first and second mate under Captain Pan's command</data>
+      <data key="d10">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d11">1e241f8a610f486a8f12330fed234fdb</data>
+      <data key="d12">28</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="JOHN" target="MRS. DARLING">
+      <data key="d8">9.0</data>
+      <data key="d9">Mrs. Darling is the mother of John, showing a parental relationship</data>
+      <data key="d10">fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d11">b247f627319348d49a71c84ec8065578</data>
+      <data key="d12">29</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="JOHN" target="MICHAEL">
+      <data key="d8">4.0</data>
+      <data key="d9">John and Michael are siblings who share a significant bond, not only through their familial ties but also through their extraordinary experiences. They are known for their collective planning and anticipation for returning home, which highlights their close relationship and mutual support. Additionally, their bond is further strengthened by their shared adventures with Peter Pan, marking them as part of the iconic group of boys who ventured into the realm of fantasy and adventure. This common past has undoubtedly played a crucial role in shaping their relationship, making their connection unique and profound.</data>
+      <data key="d10">26e6868c1dc7d337df123d48cce03dc7,fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d11">78b6d67abc074590a1f129865fe8c20f</data>
+      <data key="d12">30</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="JOHN" target="THE SHIP">
+      <data key="d8">5.0</data>
+      <data key="d9">John, along with his siblings, planned their return on the ship, indicating a connection to their adventure</data>
+      <data key="d10">fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d11">5da8466830f64c6e94c0b40ea34b61a3</data>
+      <data key="d12">31</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="JOHN" target="TOOTLES">
+      <data key="d8">3.0</data>
+      <data key="d9">Tootles and John are both mentioned as having grown up and taken on adult roles, indicating their progression from the adventures of their youth.</data>
+      <data key="d10">26e6868c1dc7d337df123d48cce03dc7</data>
+      <data key="d11">9a27141124734a7fb110108c0226f4fa</data>
+      <data key="d12">32</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="MICHAEL" target="MRS. DARLING">
+      <data key="d8">9.0</data>
+      <data key="d9">Mrs. Darling is the mother of Michael, showing a parental relationship</data>
+      <data key="d10">fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d11">42edce3cb2754e2f9c3536e564f59efd</data>
+      <data key="d12">33</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="MICHAEL" target="THE SHIP">
+      <data key="d8">1.0</data>
+      <data key="d9">Michael, along with his siblings, planned their return on the ship, indicating a connection to their adventure</data>
+      <data key="d10">fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d11">a051568a3f00496a98ea963a1aa3c7ca</data>
+      <data key="d12">34</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="MICHAEL" target="SLIGHTLY">
+      <data key="d8">3.0</data>
+      <data key="d9">Both Slightly and Michael are mentioned in the context of their lives after the events with Peter Pan, indicating a shared history.</data>
+      <data key="d10">26e6868c1dc7d337df123d48cce03dc7</data>
+      <data key="d11">17f6baa0304b49d0b9e5a606b67bcedd</data>
+      <data key="d12">35</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="LOST BOYS" target="TOOTLES">
+      <data key="d8">1.0</data>
+      <data key="d9">Tootles, despite being the silliest, takes a leadership role in defending Wendy</data>
+      <data key="d10">86bcf729192972ba2b7fda011c2aa0d1</data>
+      <data key="d11">fa7e5bf378e043259626f38dc7a33792</data>
+      <data key="d12">36</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="LOST BOYS" target="PETER PAN">
+      <data key="d8">8.0</data>
+      <data key="d9">Peter Pan leads the Lost Boys, including Slightly, in their adventures</data>
+      <data key="d10">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d11">c87f0b3620dc4282bcfcb14dd6e36975</data>
+      <data key="d12">37</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="TOOTLES" target="CREW">
+      <data key="d8">3.0</data>
+      <data key="d9">Tootles, as the bo&#8217;sun, is among the crew preparing for their journey home</data>
+      <data key="d10">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d11">f1cdcba6fd154706b15e3d8a128d2a67</data>
+      <data key="d12">38</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="TOOTLES" target="SLIGHTLY">
+      <data key="d8">1.0</data>
+      <data key="d9">Slightly and Tootles, having both moved on to significant roles in society, share a common history of adventure and growth.</data>
+      <data key="d10">26e6868c1dc7d337df123d48cce03dc7</data>
+      <data key="d11">04aeb6ce3fb54b1c878603af48bb93d5</data>
+      <data key="d12">39</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="JAMES HOOK" target="PETER PAN">
+      <data key="d8">9.0</data>
+      <data key="d9">James Hook faces Peter Pan in a final confrontation and is defeated</data>
+      <data key="d10">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d11">da758bb34e5a4bfeb538a4e9278fff1e</data>
+      <data key="d12">40</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="JAMES HOOK" target="CROCODILE">
+      <data key="d8">10.0</data>
+      <data key="d9">James Hook is ultimately taken by the crocodile, marking his end</data>
+      <data key="d10">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d11">2ef370bb44d54302a8c100b9734dab8b</data>
+      <data key="d12">41</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PETER PAN" target="CAPTAIN PAN">
+      <data key="d8">1.0</data>
+      <data key="d9">Peter Pan is Captain Pan, leading the ship and its crew</data>
+      <data key="d10">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d11">a60ae28c480f4938adfcb2eee4663fa7</data>
+      <data key="d12">42</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PETER PAN" target="JANE">
+      <data key="d8">15.0</data>
+      <data key="d9">Peter Pan, the boy who never grows up, finds himself intrigued by Jane after initially coming for Wendy. Jane, who has learned about Peter Pan through her mother's stories, is curious about him. Seeing Jane's curiosity and recognizing her potential as a companion for adventures, Peter Pan shifts his interest towards her. Together, they embark on a journey filled with the promise of endless adventures, as Jane steps into the magical world that her mother once told her about.</data>
+      <data key="d10">26e6868c1dc7d337df123d48cce03dc7,72abf0c0ea6a8fb3a19336e53e60903d</data>
+      <data key="d11">5791503a163d4e41aee24b20b1c10164</data>
+      <data key="d12">43</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PETER PAN" target="NEVERLAND">
+      <data key="d8">1.0</data>
+      <data key="d9">Peter Pan is intrinsically linked to Neverland, as its most famous resident and the embodiment of its spirit of eternal childhood</data>
+      <data key="d10">72abf0c0ea6a8fb3a19336e53e60903d</data>
+      <data key="d11">93aff38099c546f292bbb18765a61493</data>
+      <data key="d12">44</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PETER PAN" target="SPRING CLEANING">
+      <data key="d8">1.0</data>
+      <data key="d9">Peter Pan associates his visit to Wendy with spring cleaning time, suggesting a ritual or significant event in his visits</data>
+      <data key="d10">72abf0c0ea6a8fb3a19336e53e60903d</data>
+      <data key="d11">ea1e5fa99af94c4ebf85f40b4b7a3dd7</data>
+      <data key="d12">45</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="CREW" target="CAPTAIN PAN">
+      <data key="d8">8.0</data>
+      <data key="d9">Captain Pan, as the leader, gives orders to the crew, indicating authority and direction</data>
+      <data key="d10">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d11">193a967d7ef84aa7a4e5d750d72d2be1</data>
+      <data key="d12">46</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="AZORES" target="CAPTAIN PAN">
+      <data key="d8">7.0</data>
+      <data key="d9">Captain Pan calculates that they should strike the Azores about the 21st of June, indicating navigation towards this destination</data>
+      <data key="d10">e1cd6306d3740d487b902373b7e1d1c4</data>
+      <data key="d11">944f4f2c642a4212865a13f3b8853f59</data>
+      <data key="d12">47</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="MRS. DARLING" target="MR. DARLING">
+      <data key="d8">9.0</data>
+      <data key="d9">Mrs. Darling is awaiting George's (Mr. Darling's) return, indicating a marital relationship</data>
+      <data key="d10">fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d11">91e3ce32ad6641c482e66379ba559248</data>
+      <data key="d12">48</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="MR. DARLING" target="NANA">
+      <data key="d8">8.0</data>
+      <data key="d9">Mr. Darling shows deference to Nana, indicating a respect for her role in the family</data>
+      <data key="d10">fe359e0d8cb9035d4622864e08afc0d8</data>
+      <data key="d11">d302d94de8864611ba8346079545683d</data>
+      <data key="d12">49</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PROJECT GUTENBERG" target="UNITED STATES">
+      <data key="d8">5.0</data>
+      <data key="d9">Project Gutenberg's operations and copyright compliance are significantly mentioned in the context of United States laws</data>
+      <data key="d10">b30e77cdc55f45165aeed8d44d5f6814</data>
+      <data key="d11">93887ef54e454b1bbbd25451e9c5ecfc</data>
+      <data key="d12">50</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PROJECT GUTENBERG" target="PROJECT GUTENBERG LITERARY ARCHIVE FOUNDATION">
+      <data key="d8">1.0</data>
+      <data key="d9">The Project Gutenberg Literary Archive Foundation is directly linked to Project Gutenberg through donations and royalty payments</data>
+      <data key="d10">b30e77cdc55f45165aeed8d44d5f6814</data>
+      <data key="d11">e9cb037035554a09a4ed3acdca276cd0</data>
+      <data key="d12">51</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PROJECT GUTENBERG" target="COPYRIGHT LAWS">
+      <data key="d8">1.0</data>
+      <data key="d9">Project Gutenberg's distribution and use of works are governed by copyright laws</data>
+      <data key="d10">b30e77cdc55f45165aeed8d44d5f6814</data>
+      <data key="d11">0f1176ea530d4425b0b524781937f25c</data>
+      <data key="d12">52</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="UNITED STATES" target="COPYRIGHT LAWS">
+      <data key="d8">4.0</data>
+      <data key="d9">Copyright laws in the United States are specifically mentioned as governing the use of Project Gutenberg works</data>
+      <data key="d10">b30e77cdc55f45165aeed8d44d5f6814</data>
+      <data key="d11">228a74375d6d4e78a50ed68423aae187</data>
+      <data key="d12">53</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PROJECT GUTENBERG LITERARY ARCHIVE FOUNDATION" target="PROJECT GUTENBERG&#8482;">
+      <data key="d8">1.0</data>
+      <data key="d9">The Project Gutenberg Literary Archive Foundation manages and distributes the Project Gutenberg&#8482; collection</data>
+      <data key="d10">0eaf41d19bcc7da0bcb4a17625651951</data>
+      <data key="d11">0a530e71a66b45328a3b0c0bc6a01bae</data>
+      <data key="d12">54</data>
+      <data key="d13">0</data>
+    </edge>
+    <edge source="PROJECT GUTENBERG&#8482;" target="U.S. COPYRIGHT LAW">
+      <data key="d8">1.0</data>
+      <data key="d9">Project Gutenberg&#8482; works are created by navigating the U.S. copyright law to ensure they are not protected by copyright before being added to the collection</data>
+      <data key="d10">0eaf41d19bcc7da0bcb4a17625651951</data>
+      <data key="d11">373758a72e30470596eed515ee679cde</data>
+      <data key="d12">55</data>
+      <data key="d13">0</data>
+    </edge>
+  </graph>
+</graphml>
