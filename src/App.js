@@ -310,6 +310,7 @@ const App = () => {
 
       {/* 챗봇 */}
       {isOpen && (
+        <>
           <Chatbot
               key={forceUpdate}
               config={setting}
@@ -317,11 +318,12 @@ const App = () => {
               messageParser={MessageParser}
               messageHistory={messages}
           />
+        {/* 마이크 버튼 */}
+          <button className="mic" onClick={mic}>
+            <img src="image/VoiceIcon.png" alt="mic Icon" style={{ width: '20px', height: '20px' }} />
+          </button>
+        </>
       )}
-
-      <button className="mic" onClick={mic}>
-        <img src="image/network.png" alt="mic Icon" style={{ width: '20px', height: '20px' }} />
-      </button>
 
       {/* 챗봇 버튼 */}
       <button className="chatbot-button" onClick={toggleChatbot}>
