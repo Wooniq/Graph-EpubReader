@@ -117,3 +117,21 @@
 .chatbot-container {
     animation: slideUp 0.3s ease;
 }
+
+
+.mic {
+    position: fixed; /* This will keep it at a fixed position on the screen */
+    bottom: 60px; /* You can adjust this value to position it where you want */
+    right: 60px; /* Position it from the right side of the screen */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: gives it a background color */
+    border: none; /* Remove the border */
+    padding: 10px; /* Add some padding for a better look */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+    z-index: 1000; /* Ensure it appears above other content */
+  }
+  
+.mic img {
+    width: 30px; /* Size the icon */
+    height: 30px; /* Size the icon */
+}

@@ -1,15 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ReactReader, ReactReaderStyle } from 'react-reader';
-import { FaBookmark, FaTrash, FaPalette } from 'react-icons/fa';
-import Chatbot from "react-chatbot-kit";
-import setting from "./components/chatbot/setting.js";
-import MessageParser from "./components/chatbot/MessageParser.js";
-import ActionProvider from "./components/chatbot/ActionProvider.js";
+import React, { useEffect, useRef, useState } from 'react';
+import Chatbot, { createChatBotMessage, createClientMessage } from "react-chatbot-kit";
 import "react-chatbot-kit/build/main.css";
-import "./styles/chatbot.css";
+import { FaBookmark, FaPalette, FaTrash } from 'react-icons/fa';
+import { ReactReader, ReactReaderStyle } from 'react-reader';
 import "remixicon/fonts/remixicon.css";
+import ActionProvider from "./components/chatbot/ActionProvider";
+import Loader from "./components/chatbot/Loader";
+import MessageParser from "./components/chatbot/MessageParser";
+import setting from "./components/chatbot/setting.js";
 import NetworkGraph from './NetworkGraph'; // NetworkGraph 컴포넌트 가져오기
-
+import "./styles/chatbot.css";
 
 const ownStyles = {
   ...ReactReaderStyle,
@@ -33,8 +33,90 @@ const App = () => {
   const readerRef = useRef(null)
   const [book, setBook] = useState(null)
   const [isOpen, setIsOpen] = useState(false);
+  const [recordText, setRecordText] = useState('');
+  const [messages, setMessages] = useState([]);
+  const [isRecording, setIsRecording] = useState(false);
+  const [forceUpdate, setForceUpdate] = useState(false);
+//////////
+  const actionProvider = new ActionProvider(
+    createChatBotMessage,
+    (newState) => setMessages(newState.messages),
+    (message) => createClientMessage(message)
+  );
+
+  const actionProviderRef = useRef(null); 
+
+////////
+  const mic = async () => { 
+    //const text = await startRecording(); 
+    const text= "what is the wonderland?";
+    console.log("mic button recording text: ", text); 
+
+    const clientMesage = actionProvider.createClientMessage(text);
+    setMessages(prevMessages => [...prevMessages, clientMesage]);
+    //setForceUpdate((prev) => !prev);
+    //console.log("Messages after mic : ", messages); 
+    
+//--------------------------------------------------server - chatbot code -----------------
+    //await actionProvider.handleUserMessage(text);
+    //const chatBotMessage = actionProvider.createChatbotMessage("chatbot");
+    
+
+    try {
+            
+      // 로딩 메시지
+      const loading = actionProvider.createChatbotMessage(<Loader />)
+      setMessages(prevMessages => [...prevMessages, loading]);
+      console.log(`before server`);
+      /*
+      // 서버에 요청 보내기
+      const response = await fetch('http://localhost:5000/run-query', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message }), // 사용자 메시지를 서버로 전달
+      });
+      const data = await response.json(); // 서버의 응답 받기 dataResult
+
+      console.log(`Raw data: ${data.result}`); // 응답 데이터 출력
+      */
+      let data = {result: "alice"};
+      data.result = "bob";
+      console.log(`Raw data: ${data.result}`); // 응답 데이터 출력
+
+      // \n을 <br />로 변환
+      const formattedResult = data.result ? data.result.replace(/\n/g, '<br />') : "No result returned.";
+
+      // 챗봇 메시지 생성
+      const chatbotMessage = actionProvider.createChatbotMessage(<span dangerouslySetInnerHTML={{ __html: formattedResult }} />);
+
+      // 상태에 메시지를 추가
+      setMessages(prevMessages => {
+        const newMessages = prevMessages.filter((msg) => msg != loading);
+        return [...newMessages, chatbotMessage]; 
+      });
+
+      setForceUpdate((prev) => !prev);
+
+
+      return formattedResult;
+      
+  } catch (error) {
+      console.error("Error executing Python command:", error);
+      const errorMessage = actionProvider.createChatbotMessage("An error occurred while processing your request.");
+      setMessages(prevMessages => [...prevMessages, errorMessage]);
+  }
+
+    //setMessages(prevMessages => [...prevMessages, chatBotMessage]);
+    //setForceUpdate((prev) => !prev);
+
+    //console.log("message after mic: ", messages);
+  };
+
 
   const toggleChatbot = () => {
+    console.log("Toggling Chatbot...");
     setIsOpen(!isOpen); // 버튼을 누를 때마다 열리고 닫히는 상태 토글
   };
 
@@ -107,6 +189,7 @@ const App = () => {
       rendition.themes.select('default')
     }
   }, [rendition])
+
 
   return (
     <div style={{ display: 'flex', height: '100vh' }}>
@@ -193,12 +276,18 @@ const App = () => {
 
       {/* 챗봇 */}
       {isOpen && (
-        <Chatbot
-        config={setting}
-        actionProvider={ActionProvider}
-        messageParser={MessageParser}
-      />
+          <Chatbot
+              key={forceUpdate}
+              config={setting}
+              actionProvider={ActionProvider}
+              messageParser={MessageParser}
+              messageHistory={messages}
+          />
       )}
+
+      <button className="mic" onClick={mic}>
+        <img src="image/network.png" alt="mic Icon" style={{ width: '20px', height: '20px' }} />
+      </button>
 
       {/* 챗봇 버튼 */}
       <button className="chatbot-button" onClick={toggleChatbot}>
