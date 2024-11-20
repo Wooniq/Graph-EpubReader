@@ -9,23 +9,32 @@ class ActionProvider {
 
     handleUserMessage = async (message) => {
         try {
+            
             // 로딩 메시지
             const loading = this.createChatbotMessage(<Loader />)
-            this.setState((prev) => ({ ...prev, messages: [...prev.messages, loading], }))
-
+            this.setState((prev) => ({
+                ...prev,
+                messages: [...(Array.isArray(prev.messages) ? prev.messages : []) , loading],  // prev.messages가 배열이 아닐 경우 빈 문자열로 처리
+            }));
+            console.log(`before server`);
+            /*
             // 서버에 요청 보내기
-            const response = await fetch('http://113.198.85.7:80/run-query', {
+            const response = await fetch('http://localhost:5000/run-query', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ message }), // 사용자 메시지를 서버로 전달
             });
+            const data = await response.json(); // 서버의 응답 받기 dataResult
 
-            const data = await response.json(); // 서버의 응답 받기dataResult
-            console.log(`Raw data: ${data.reuslt}`); // 응답 데이터 출력
+            console.log(`Raw data: ${data.result}`); // 응답 데이터 출력
+            */
+            let data = {result: "alice"};
+            data.result = "bob";
+            console.log(`Raw data: ${data.result}`); // 응답 데이터 출력
 
-            // \n을 <br />로 변환
+            // \n을 <br />로 변환           ?????????????????????/
             const formattedResult = data.result ? data.result.replace(/\n/g, '<br />') : "No result returned.";
 
             // 챗봇 메시지 생성
@@ -33,20 +42,23 @@ class ActionProvider {
 
             // 상태에 메시지를 추가
             this.setState((prev) => {
-                // 로딩 메시지 지우기
-                const newPrevMsg = prev.messages.slice(0, -1)
-                return { ...prev, messages: [...newPrevMsg, chatbotMessage], }
-            })
+                const newPrevMsg = Array.isArray(prev.messages) ? prev.messages.slice(0, -1) : []; // 배열이 아니면 빈 문자열로 처리
+                return { 
+                    ...prev, 
+                    messages: [...newPrevMsg, chatbotMessage],
+                };
+            });
+            return formattedResult;
+            
         } catch (error) {
             console.error("Error executing Python command:", error);
             const errorMessage = this.createChatbotMessage("An error occurred while processing your request.");
             this.setState((prev) => ({
                 ...prev,
-                messages: [...prev.messages, errorMessage],
+                messages: [...(prev.messages || []), errorMessage],
             }));
         }
     };
-
 }
 
 export default ActionProvider;

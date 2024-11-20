@@ -5,7 +5,7 @@ const ChatMessageContainer = styled.div`
   width: fit-content;
   display: flex;
   justify-content: center;
-  background-color: ${(props) => (props.isBot ? "#f2f2f2" : "#5c82ff")};
+  background-color: ${(props) => (props.isBot ? "#DAD4FF" : "#FFFFFF")};
   border-radius: ${(props) =>
         props.isBot ? "20px 20px 20px 5px" : "20px 20px 5px 20px"};
   margin-left: 0.4rem;
