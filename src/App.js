@@ -225,7 +225,7 @@ const App = () => {
       </div>
 
       {/* 오른쪽: Knowledge Graph */}
-      <div style={{ flex: '0 0 100%', position: 'relative', height: '100%' }}>
+      <div style={{ display: 'flex', width: '100%', height: '100vh' }}>
         <NetworkChart data={data} />
       </div>
 
