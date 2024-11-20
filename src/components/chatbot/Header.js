@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.div`
   background: rgb(92, 130, 255);
-  background: #5F80FF;
+  background: #B6ABFF;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +18,7 @@ const HeaderContainer = styled.div`
 function Header() {
     return (
         <HeaderContainer>
-          <div style={{ color: 'white', fontWeight: 'bold', fontSize: '1rem' }}>GraphBot</div>
+          <div style={{ color: 'white', fontWeight: 'bold', fontSize: '1rem' }}>Rabbit</div>
             <i className="ri-close-line" />
         </HeaderContainer>
     );
