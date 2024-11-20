@@ -12,12 +12,16 @@ import { io } from 'socket.io-client';
 class WebRTCClient {
     constructor() {
         // 시그널링 서버와의 소켓 연결 설정
-        this.socket = io('http://localhost:5001', {
-            transports: ['websocket'],  // 웹소켓 프로토콜만 사용
+        this.socket = io('https://uncommon-closely-sparrow.ngrok-free.app', {
+            path: '/socket.io/',
+            transports: ['websocket'],
+            secure: true,
+            rejectUnauthorized: false, // 자체 서명된 인증서 허용
             reconnection: true,
             reconnectionAttempts: 5,
             reconnectionDelay: 1000
         });
+        console.log('WebSocket URL: ', this.socket.io)
         console.log('webRTCClient.js에서 socket 연결 설정 완료');
         // WebRTC 연결 객체
         this.peerConnection = null;
