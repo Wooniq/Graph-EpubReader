@@ -25,7 +25,8 @@ yarn-error.log*
 # Ignore configuration files with sensitive information
 config.js
 src/parquet/.env
-src/parquet/output
+src/parquet/logs
+src/parquet/cache
 
 # Python virtual environment
 venv/

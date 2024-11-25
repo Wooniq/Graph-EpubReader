@@ -7,7 +7,7 @@ import time
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from speaker import text_to_speech
+#from speaker import text_to_speech
 
 app = Flask(__name__)
 CORS(app)
@@ -26,8 +26,10 @@ def run_query():
         'query',
         '--root',
         './parquet',
+        '--response-type',
+        'Single Sentence',
         '--method',
-        'global',
+        'local',
         '--query',
         message
     ]
@@ -55,24 +57,19 @@ def run_query():
 
     # 바이트 스트림을 euc-kr로 디코드 (또는 다른 인코딩으로 변경)
     output = result.stdout
-    
     print(output)
 
-    # SUCCESS: Global Search Response 또는 SUCCESS: Local Search Response 이후의 텍스트 추출
-    regex = r'SUCCESS: (Global|Local) Search Response:\s*([\s\S]+?)(?=\[(Data|데이터)|\n*$)'
-    match = re.search(regex, output)
+    # 정규 표현식으로 [Data: {내용}], **.. **, # 부분을 제거
+    answer = re.sub(r'.*SUCCESS: (Local|Global) Search Response:\s*', '', output, flags=re.DOTALL)  # SUCCESS 이후 내용만 남기기
+    answer = re.sub(r'\[Data:.*?\]\s*|\*.*?\*\s*|#', '', answer)  # [Data: ...] 및 *...* 제거
+    print(answer)
+  
+    # #test용  answer
+    # answer = "hi!!!!!!!"
 
-    if match:
-        answer = match.group(2).strip()  # 실제 메시지 부분만 추출
-        print(f'Extracted answer: {answer}')  # 추출된 답변 출력
-    else:
-        print("No match found.")
-        answer = "No valid response found."  # 매칭이 되지 않으면 기본 메시지 설정
-
-
-    global recordText
-    recordText = answer
-    text_to_speech(answer)
+    #global recordText
+    #recordText = answer
+    #text_to_speech(answer)
     return jsonify({'result': answer})
 
 
@@ -94,4 +91,4 @@ def run_query():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)
