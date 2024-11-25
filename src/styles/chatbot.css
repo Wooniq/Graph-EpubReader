@@ -118,14 +118,14 @@
     animation: slideUp 0.3s ease;
 }
 
-
 .mic {
-    position: absolute; 
-    bottom: 10px;
-    right: 30px;
+    position: fixed; /* This will keep it at a fixed position on the screen */
+    bottom: 90px; /* You can adjust this value to position it where you want */
+    right: 25px; /* Position it from the right side of the screen */
     width: 50px;
-    height: 210px;
-    border: none;
+    height: 50px;
+    /*background-color: rgba(0, 0, 0, 0.5); /* Optional: gives it a background color */
+    border: none; /* Remove the border */
     padding: 10px; /* Add some padding for a better look */
     background: transparent;
     border-radius: 50%; /* Make it round */
