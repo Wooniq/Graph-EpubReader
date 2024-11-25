@@ -8,59 +8,47 @@ const WHISPER_API_URL = "https://api.openai.com/v1/audio/transcriptions";
 const WHISPER_API_KEY = "";
 
 
-
-const startRecording = async () => {
-
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("Who is the main character?");
-    }, 1000); 
-  });
-};
-
-
-
 // 음성 녹음 시작
-// const startRecording = async () => {
-//   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-//     throw new Error("Media devices are not supported by your browser.");
-//   }
+const startRecording = async () => {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    throw new Error("Media devices are not supported by your browser.");
+  }
 
-//   try {
-//     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-//     mediaRecorder = new MediaRecorder(stream);
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    mediaRecorder = new MediaRecorder(stream);
 
-//     return new Promise((resolve, reject) => {
-//       audioChunks = [];
+    return new Promise((resolve, reject) => {
+      audioChunks = [];
      
-//       mediaRecorder.ondataavailable = (event) => {
-//         if (event.data.size > 0) {
-//           audioChunks.push(event.data);
-//         }
-//       };
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          audioChunks.push(event.data);
+        }
+      };
 
-//       mediaRecorder.onstop = async () => {
-//         const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
-//         try {
-//           const text = await transcribeAudio(audioBlob);
-//           resolve(text);
-//         } catch (error) {
-//           reject(error);
-//         }
-//       };
+      mediaRecorder.onstop = async () => {
+        const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+        try {
+          const text = await transcribeAudio(audioBlob);
+          resolve(text);
+        } catch (error) {
+          reject(error);
+        }
+      };
 
-//       mediaRecorder.start();
-//       console.log("Recording started. Speak now...");
+      mediaRecorder.start();
+      console.log("Recording started. Speak now...");
 
-//       setTimeout(() => {
-//         mediaRecorder.stop();
-//         console.log("Recording stopped.");
-//       }, 5000); // 녹음 시간 제한 (5초)
-//     });
-//   } catch (error) {
-//     console.error("Error accessing microphone:", error);
-//   }
-// };
+      setTimeout(() => {
+        mediaRecorder.stop();
+        console.log("Recording stopped.");
+      }, 5000); // 녹음 시간 제한 (5초)
+    });
+  } catch (error) {
+    console.error("Error accessing microphone:", error);
+  }
+};
 
 // Whisper API를 사용하여 음성을 텍스트로 변환
 const transcribeAudio = async (audioBlob) => {

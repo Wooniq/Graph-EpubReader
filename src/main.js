@@ -2,17 +2,24 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
 function createWindow() {
-  const win = new BrowserWindow({
+  let options = {
+    /*
     width: 1200,
-    height: 800,
+    height: 1900,
+    x: 0,
+    y: 0,
+    */
     webPreferences: {
-      preload: path.join(__dirname, 'public/preload.js'),
-      nodeIntegration: true,
-      contextIsolation: false
-    }
-  });
+        nodeIntegration: true,
+        contextIsolation: false,
+    },
+  }
+  options.fullscreen = true
+  options.autoHideMenuBar = true
+  const win = new BrowserWindow(options)
 
-  win.loadURL('http://localhost:80'); // React dev server가 기본적으로 사용하는 포트입니다.
+  win.loadURL('https://uncommon-closely-sparrow.ngrok-free.app');
+  //win.loadURL('http://localhost:3000')
 
   // 개발자 도구 열기 (옵션)
   win.webContents.openDevTools();
