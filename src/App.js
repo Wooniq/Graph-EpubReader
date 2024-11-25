@@ -13,7 +13,7 @@ import MessageParser from "./components/chatbot/MessageParser.js";
 import setting from "./components/chatbot/setting.js";
 import data from './json/graphml_data.json';
 import "./styles/chatbot.css";
-
+import { startRecording }from './recorder.js';
 
 // WebRTC
 import VideoChat from './webRTC/components/VideoChat';
@@ -53,13 +53,13 @@ const App = () => {
 
 ////////
   const mic = async () => { 
-    //const text = await startRecording(); 
-    const text= "what is the wonderland?";
+    const text = await startRecording(); 
+    // const text= "what is the wonderland?";
     console.log("mic button recording text: ", text); 
 
     const clientMesage = actionProvider.createClientMessage(text);
     setMessages(prevMessages => [...prevMessages, clientMesage]);
-    //setForceUpdate((prev) => !prev);
+    setForceUpdate((prev) => !prev);
     //console.log("Messages after mic : ", messages); 
     
 //--------------------------------------------------server - chatbot code -----------------
@@ -72,23 +72,19 @@ const App = () => {
       const loading = actionProvider.createChatbotMessage(<Loader />)
       setMessages(prevMessages => [...prevMessages, loading]);
       console.log(`before server`);
-      /*
+      
       // 서버에 요청 보내기
-      const response = await fetch('http://localhost:5000/run-query', {
+      const response = await fetch('https://uncommon-closely-sparrow.ngrok-free.app/run-query', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ message }), // 사용자 메시지를 서버로 전달
+          body: JSON.stringify({ message: text }), // 사용자 메시지를 서버로 전달
       });
       const data = await response.json(); // 서버의 응답 받기 dataResult
 
       console.log(`Raw data: ${data.result}`); // 응답 데이터 출력
-      */
-      let data = {result: "alice"};
-      data.result = "bob";
-      console.log(`Raw data: ${data.result}`); // 응답 데이터 출력
-
+      
       // \n을 <br />로 변환
       const formattedResult = data.result ? data.result.replace(/\n/g, '<br />') : "No result returned.";
 
