@@ -46,10 +46,44 @@ const NetworkChart = ({ data }) => {
     const svg = d3.select(chartRef.current)
       .attr("width", width)
       .attr("height", height)
-      .attr("viewBox", [0, 0, width, height])
+      .attr("viewBox", [0, 0, "100%", "100%"])
       .style("max-width", "100%")
       .style("height", "auto");
     svg.selectAll("*").remove();
+
+    // SVG 상단에 React 스타일 컴포넌트 렌더링
+    svg.append("foreignObject")
+      .attr("x","30%") // 가운데 정렬 (컴포넌트의 너비를 고려)
+      .attr("y", 15) // 상단 위치
+      .attr("width", 220) // 컴포넌트 너비
+      .attr("height", 50) // 컴포넌트 높이
+      .html(`
+        <div style="
+          position: relative;
+          background-color: #5C469C;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          font-family: 'Arial', sans-serif;
+          font-size: 14px;
+          text-align: center;
+          line-height: 1.5;
+        ">
+          📍 Nodes: ${data.nodes.length} | 🕸️ Edges: ${data.edges.length}
+        </div>
+      `);
+
+    // 줌 기능 설정
+    const zoom = d3.zoom()
+      .scaleExtent([1, 10]) // 최소 1배, 최대 10배 줌 가능
+      .translateExtent([[0, 0], [width, height]]) // 이동 가능한 범위 설정
+      .on("zoom", (event) => {
+        svg.attr("transform", event.transform); // 줌 변환 적용
+      });
+
+    // SVG 요소에 줌 기능 적용
+    svg.call(zoom);
 
     // 링크 요소 추가
     const edge = svg.append("g")
