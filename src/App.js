@@ -14,6 +14,7 @@ import setting from "./components/chatbot/setting.js";
 import data from './json/graphml_data.json';
 import "./styles/chatbot.css";
 import { startRecording }from './recorder.js';
+import adapter from "./components/chatbot/Adapter.js";
 
 // WebRTC
 import VideoChat from './webRTC/components/VideoChat';
@@ -68,6 +69,9 @@ const App = () => {
     
     try {
             
+      let resMethod = adapter.getResMethod();
+      console.log(`Audio resMethod : ${resMethod}`)
+
       // 로딩 메시지
       const loading = actionProvider.createChatbotMessage(<Loader />)
       setMessages(prevMessages => [...prevMessages, loading]);
@@ -79,7 +83,7 @@ const App = () => {
           headers: {
               'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ message: text }), // 사용자 메시지를 서버로 전달
+          body: JSON.stringify({ message: text, resMethod }), // 사용자 메시지를 서버로 전달
       });
       const data = await response.json(); // 서버의 응답 받기 dataResult
 
