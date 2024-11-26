@@ -65,7 +65,7 @@ def run_query():
 
     # 정규 표현식으로 [Data: {내용}], **.. **, # 부분을 제거
     answer = re.sub(r'.*SUCCESS: (Local|Global) Search Response:\s*', '', output, flags=re.DOTALL)  # SUCCESS 이후 내용만 남기기
-    answer = re.sub(r'\[Data:.*?\]\s*|\*.*?\*\s*|#', '', answer)  # [Data: ...] 및 *...* 제거
+    answer = re.sub(r'\[Data:.*?\]\s*|\[데이터:.*?\]\s*|\*.*?\*\s*|#', '', answer)  # [Data: ...] 및 *...* 제거
     print(answer)
   
     # #test용  answer
