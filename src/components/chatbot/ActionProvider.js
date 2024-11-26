@@ -34,7 +34,7 @@ class ActionProvider {
                 body: JSON.stringify({ message, resMethod, resType }), // 사용자 메시지를 서버로 전달
             });
             const data = await response.json(); // 서버의 응답 받기 dataResult
-
+            
             console.log(`Raw data: ${data.result}`); // 응답 데이터 출력
             
 
