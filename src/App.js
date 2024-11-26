@@ -131,6 +131,20 @@ const App = () => {
 
   const toggleKeyboard = () => {
     setIsKeyboardVisible((prev) => !prev); // 키보드 표시 여부 토글
+    const chatbotElement = document.querySelector(".react-chatbot-kit-chat-container");
+    const keyboardElement = document.querySelector(".keyboard");
+    const micElement = document.querySelector(".mic");
+
+    if (isKeyboardVisible) {
+      chatbotElement.style.bottom = '90px'; // 스타일 객체로 접근하여 bottom 설정
+      keyboardElement.style.bottom = '95px';
+      micElement.style.bottom = '90px';
+    }
+    else {
+      chatbotElement.style.bottom = '280px'; // 스타일 객체로 접근하여 bottom 설정
+      keyboardElement.style.bottom = '285px';
+      micElement.style.bottom = '280px';
+    }
   };
 
   const updatePageInfo = (epubcifi) => {
@@ -360,14 +374,14 @@ const App = () => {
           />
         {/* 마이크 버튼 */}
           <button className="mic" onClick={mic}>
-            <img src="image/VoiceIcon.png" alt="mic Icon" style={{ width: '20px', height: '20px' }} />
+            <img src="image/VoiceIcon.png" alt="mic Icon" style={{ width: '22px', height: '22px' }} />
           </button>
 
           {/* 키보드 버튼 */}
           {/* <button className="keyboard" onClick={toggleKeyboard}>
             <img src="image/VoiceIcon.png" alt="mic Icon" style={{ width: '20px', height: '20px' }} />
           </button> */}
-          <RiKeyboardBoxFill className='keyboard' style={{width: '20px', height: '20px'}} color='grey' onClick={toggleKeyboard}/>
+          <RiKeyboardBoxFill className='keyboard' style={{width: '22px', height: '22px'}} color='#B6ABFF' onClick={toggleKeyboard}/>
 
           {isKeyboardVisible &&
             <CustomKeyboard text={text} setText={setText} setMessages={setMessages} setForceUpdate={setForceUpdate}/>
