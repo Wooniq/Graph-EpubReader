@@ -18,9 +18,11 @@ recordText=""
 def run_query():
     message = request.json.get('message', '')
     resMethod = request.json.get('resMethod', '')
+    resType = request.json.get('resType', '')
 
     print(f'message: {message}')
     print(f'resMethod: {resMethod}')
+    print(f'resType: {resType}')
 
     message += " 영어 말고 한국어로 답변해줘."
 
@@ -31,7 +33,7 @@ def run_query():
         '--root',
         './parquet',
         '--response-type',
-        'Single Sentence',
+        resType,
         '--method',
         resMethod,
         '--query',

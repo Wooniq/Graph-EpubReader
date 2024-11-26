@@ -70,6 +70,7 @@ const App = () => {
     try {
             
       let resMethod = adapter.getResMethod();
+      let resType = adapter.getResType();
       console.log(`Audio resMethod : ${resMethod}`)
 
       // 로딩 메시지
@@ -83,7 +84,7 @@ const App = () => {
           headers: {
               'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ message: text, resMethod }), // 사용자 메시지를 서버로 전달
+          body: JSON.stringify({ message: text, resMethod, resType }), // 사용자 메시지를 서버로 전달
       });
       const data = await response.json(); // 서버의 응답 받기 dataResult
 
