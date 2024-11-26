@@ -17,10 +17,10 @@ recordText=""
 @app.route('/run-query', methods=['POST'])
 def run_query():
     message = request.json.get('message', '')
-    type = request.json.get('type', '')
+    method = request.json.get('resMethod', '')
 
     print(f'message: {message}')
-    print(f'type: {type}')
+    print(f'resMethod: {resMethod}')
 
     message += " 영어 말고 한국어로 답변해줘."
 
@@ -33,7 +33,7 @@ def run_query():
         '--response-type',
         'Single Sentence',
         '--method',
-        type,
+        resMethod,
         '--query',
         message
     ]
