@@ -1,11 +1,11 @@
 let adapter = {};
 
-let type = 'local';
+let resMethod = 'local';
 
-adapter.setType = function (newType) {
-    type = newType;
+adapter.setResMethod= function (newResMethod) {
+    resMethod = newResMethod;
 }
 
-adapter.getType = () => type;
+adapter.getResMethod = () => resMethod;
 
 export default adapter;

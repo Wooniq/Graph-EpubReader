@@ -22,12 +22,12 @@ function Header() {
   const [isClicked, setIsClicked] = useState(false); // 아이콘 상태 관리
 
   useEffect(() => {
-    setIsClicked(adapter.getType() === 'local' ? isClicked : !isClicked);
+    setIsClicked(adapter.getResMethod() === 'local' ? isClicked : !isClicked);
   }, []);
 
   const toggleHeart = () => {
     setIsClicked(!isClicked);
-    adapter.setType(isClicked? 'local' : 'global');
+    adapter.setResMethod(isClicked? 'local' : 'global');
   };
   
     return (
