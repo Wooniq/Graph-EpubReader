@@ -67,6 +67,7 @@
     border-radius: 10px;
     padding: 0.8rem;
     background-color: transparent;
+    pointer-events: none;
 }
 
 .react-chatbot-kit-chat-bot-message-container {
