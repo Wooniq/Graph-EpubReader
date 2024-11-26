@@ -36,6 +36,7 @@ class ActionProvider {
             console.log(`Raw data: ${data.result}`); // 응답 데이터 출력
             
 
+
             // \n을 <br />로 변환           ?????????????????????/
             const formattedResult = data.result ? data.result.replace(/\n/g, '<br />') : "No result returned.";
 
