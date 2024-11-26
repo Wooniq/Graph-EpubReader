@@ -13,7 +13,7 @@ import MessageParser from "./components/chatbot/MessageParser.js";
 import setting from "./components/chatbot/setting.js";
 import data from './json/graphml_data.json';
 import "./styles/chatbot.css";
-import { startRecording }from './recorder.js';
+import { startRecording } from './recorder.js';
 import adapter from "./components/chatbot/Adapter.js";
 import CustomKeyboard from './components/Keyboard/CustomKeyboard.js';
 import styled from "styled-components";
@@ -51,30 +51,46 @@ const App = () => {
   const [text, setText] = useState("");
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(true);
 
-//////////
+  //////////
   const actionProvider = new ActionProvider(
     createChatBotMessage,
     (newState) => setMessages(newState.messages),
     (message) => createClientMessage(message)
   );
 
-////////
-  const mic = async () => { 
-    const text = await startRecording(); 
+  ////////
+  const mic = async () => {
+    const text = await startRecording();
     // const text= "what is the wonderland?";
-    console.log("mic button recording text: ", text); 
+    console.log("mic button recording text: ", text);
 
     const clientMesage = actionProvider.createClientMessage(text);
     setMessages(prevMessages => [...prevMessages, clientMesage]);
     setForceUpdate((prev) => !prev);
     //console.log("Messages after mic : ", messages); 
-    
-//--------------------------------------------------server - chatbot code -----------------
+
+    //--------------------------------------------------server - chatbot code -----------------
     //await actionProvider.handleUserMessage(text);
     //const chatBotMessage = actionProvider.createChatbotMessage("chatbot");
-    
+
     try {
-            
+
+      const chatbotElement = document.querySelector(".react-chatbot-kit-chat-container");
+      const keyboardElement = document.querySelector(".keyboard");
+      const micElement = document.querySelector(".mic");
+
+      if (!isKeyboardVisible) {
+        chatbotElement.style.bottom = '90px'; // 스타일 객체로 접근하여 bottom 설정
+        keyboardElement.style.bottom = '95px';
+        micElement.style.bottom = '90px';
+      }
+      else {
+        chatbotElement.style.bottom = '280px'; // 스타일 객체로 접근하여 bottom 설정
+        keyboardElement.style.bottom = '285px';
+        micElement.style.bottom = '280px';
+      }
+
+
       let resMethod = adapter.getResMethod();
       let resType = adapter.getResType();
       console.log(`Audio resMethod : ${resMethod}`)
@@ -83,19 +99,19 @@ const App = () => {
       const loading = actionProvider.createChatbotMessage(<Loader />)
       setMessages(prevMessages => [...prevMessages, loading]);
       console.log(`before server`);
-      
+
       // 서버에 요청 보내기
       const response = await fetch('https://uncommon-closely-sparrow.ngrok-free.app/run-query', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ message: text, resMethod, resType }), // 사용자 메시지를 서버로 전달
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: text, resMethod, resType }), // 사용자 메시지를 서버로 전달
       });
       const data = await response.json(); // 서버의 응답 받기 dataResult
 
       console.log(`Raw data: ${data.result}`); // 응답 데이터 출력
-      
+
       // \n을 <br />로 변환
       const formattedResult = data.result ? data.result.replace(/\n/g, '<br />') : "No result returned.";
 
@@ -105,19 +121,19 @@ const App = () => {
       // 상태에 메시지를 추가
       setMessages(prevMessages => {
         const newMessages = prevMessages.filter((msg) => msg != loading);
-        return [...newMessages, chatbotMessage]; 
+        return [...newMessages, chatbotMessage];
       });
 
       setForceUpdate((prev) => !prev);
 
 
       return formattedResult;
-      
-  } catch (error) {
+
+    } catch (error) {
       console.error("Error executing Python command:", error);
       const errorMessage = actionProvider.createChatbotMessage("An error occurred while processing your request.");
       setMessages(prevMessages => [...prevMessages, errorMessage]);
-  }
+    }
 
     //setMessages(prevMessages => [...prevMessages, chatBotMessage]);
     //setForceUpdate((prev) => !prev);
@@ -127,10 +143,14 @@ const App = () => {
 
   const toggleChatbot = () => {
     setIsOpen(!isOpen); // 버튼을 누를 때마다 열리고 닫히는 상태 토글
+    if (!isKeyboardVisible) {
+      setIsKeyboardVisible(!isKeyboardVisible);
+    }
   };
 
   const toggleKeyboard = () => {
     setIsKeyboardVisible((prev) => !prev); // 키보드 표시 여부 토글
+
     const chatbotElement = document.querySelector(".react-chatbot-kit-chat-container");
     const keyboardElement = document.querySelector(".keyboard");
     const micElement = document.querySelector(".mic");
@@ -232,7 +252,7 @@ const App = () => {
     // clean up 함수 (useEffect가 종료될 때 이벤트 리스너를 제거)
     return () => {
       const inputElement = document.querySelector(".react-chatbot-kit-chat-input");
-      if (inputElement&& isKeyboardVisible) {
+      if (inputElement && isKeyboardVisible) {
         inputElement.removeEventListener('input', handleChange);
       }
     };
@@ -243,9 +263,9 @@ const App = () => {
     // 상태 업데이트 전 현재 값을 확인하고, 중복되지 않게 처리
     const newText = e.target.value;
     if (newText !== text) {
-        setText(newText);  // 새로운 텍스트로 상태 업데이트
+      setText(newText);  // 새로운 텍스트로 상태 업데이트
     }
-};
+  };
 
   // 뷰어 렌더링 함수
   const renderViewer = () => {
@@ -366,13 +386,13 @@ const App = () => {
       {isOpen && (
         <>
           <Chatbot
-              key={forceUpdate}
-              config={setting}
-              actionProvider={ActionProvider}
-              messageParser={MessageParser}
-              messageHistory={messages}
+            key={forceUpdate}
+            config={setting}
+            actionProvider={ActionProvider}
+            messageParser={MessageParser}
+            messageHistory={messages}
           />
-        {/* 마이크 버튼 */}
+          {/* 마이크 버튼 */}
           <button className="mic" onClick={mic}>
             <img src="image/VoiceIcon.png" alt="mic Icon" style={{ width: '22px', height: '22px' }} />
           </button>
@@ -381,12 +401,12 @@ const App = () => {
           {/* <button className="keyboard" onClick={toggleKeyboard}>
             <img src="image/VoiceIcon.png" alt="mic Icon" style={{ width: '20px', height: '20px' }} />
           </button> */}
-          <RiKeyboardBoxFill className='keyboard' style={{width: '22px', height: '22px'}} color='#B6ABFF' onClick={toggleKeyboard}/>
+          <RiKeyboardBoxFill className='keyboard' style={{ width: '22px', height: '22px' }} color='#B6ABFF' onClick={toggleKeyboard} />
 
           {isKeyboardVisible &&
-            <CustomKeyboard text={text} setText={setText} setMessages={setMessages} setForceUpdate={setForceUpdate}/>
+            <CustomKeyboard text={text} setText={setText} setMessages={setMessages} setForceUpdate={setForceUpdate} />
           }
-          
+
         </>
       )}
 
