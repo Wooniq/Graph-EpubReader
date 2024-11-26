@@ -26,7 +26,13 @@ const NetworkChart = ({ data }) => {
       .domain([0, d3.max(nodes, d => d.degree)]) // degree 값의 범위
       .range([15, 30]); // 최소 15, 최대 30 크기
 
-    // 시뮬레이션 설정
+    // 링크 거리 초기값
+    const baseDistance = 150;
+
+    // D3 시뮬레이션 설정
+    const linkForce = d3.forceLink(edges).id(d => d.id).distance(baseDistance).strength(0.2);
+
+    // D3 시뮬레이션 설정
     const simulation = d3.forceSimulation(nodes)
       .force("link", d3.forceLink(edges).id(d => d.id).distance(150).strength(0.2)) // 약한 링크 장력
       .force("charge", d3.forceManyBody()
@@ -34,7 +40,7 @@ const NetworkChart = ({ data }) => {
         .distanceMin(20) // 최소 거리 증가
         .distanceMax(500) // 최대 거리 증가
       )
-      .force("center", d3.forceCenter(width / 2, height / 2)) // 중심 위치 유지
+      .force("center", d3.forceCenter(width / 2 - 200, height / 2 + 30)) // 중심 위치 유지
       .force("collision", d3.forceCollide().radius(d => sizeScale(d.degree) + 10)) // 충돌 반경 증가
       .force("x", d3.forceX(width / 2).strength(0.05)) // 중심 복귀 강도 증가
       .force("y", d3.forceY(height / 2).strength(0.05)) // 중심 복귀 강도 증가
@@ -51,42 +57,12 @@ const NetworkChart = ({ data }) => {
       .style("height", "auto");
     svg.selectAll("*").remove();
 
-    // SVG 상단에 React 스타일 컴포넌트 렌더링
-    svg.append("foreignObject")
-      .attr("x","30%") // 가운데 정렬 (컴포넌트의 너비를 고려)
-      .attr("y", 15) // 상단 위치
-      .attr("width", 220) // 컴포넌트 너비
-      .attr("height", 50) // 컴포넌트 높이
-      .html(`
-        <div style="
-          position: relative;
-          background-color: #5C469C;
-          color: #fff;
-          padding: 10px 20px;
-          border-radius: 12px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          font-family: 'Arial', sans-serif;
-          font-size: 14px;
-          text-align: center;
-          line-height: 1.5;
-        ">
-          📍 Nodes: ${data.nodes.length} | 🕸️ Edges: ${data.edges.length}
-        </div>
-      `);
-
-    // 줌 기능 설정
-    const zoom = d3.zoom()
-      .scaleExtent([1, 10]) // 최소 1배, 최대 10배 줌 가능
-      .translateExtent([[0, 0], [width, height]]) // 이동 가능한 범위 설정
-      .on("zoom", (event) => {
-        svg.attr("transform", event.transform); // 줌 변환 적용
-      });
-
-    // SVG 요소에 줌 기능 적용
-    svg.call(zoom);
+    // 그래프 그룹 생성
+    const graphGroup = svg.append("g");
 
     // 링크 요소 추가
-    const edge = svg.append("g")
+    const edge = graphGroup.append("g")
+      // svg.append("g")
       .attr("stroke", "#999")
       .attr("stroke-opacity", 0.6)
       .selectAll("line")
@@ -106,7 +82,8 @@ const NetworkChart = ({ data }) => {
       .style("font-size", "12px");
 
     // 노드 그룹 생성 (노드와 텍스트를 함께 포함)
-    const nodeGroup = svg.append("g")
+    const nodeGroup = graphGroup.append("g")
+      // svg.append("g")
       .selectAll("g")
       .data(nodes)
       .join("g")
@@ -127,7 +104,7 @@ const NetworkChart = ({ data }) => {
         .on("end", dragended));
 
     // 노드 원(circle)과 텍스트 추가
-    nodeGroup.append("circle")
+    const circles = nodeGroup.append("circle")
       .attr("r", d => sizeScale(d.degree)) // degree를 기준으로 크기 설정
       .attr("fill", d => color(d.type)) // 노드 색상 설정
       .attr("stroke", "#fff")
@@ -140,6 +117,16 @@ const NetworkChart = ({ data }) => {
       .style("font-weight", "bold") // 텍스트를 볼드체로 설정
       .style("fill", "#333")
       .text(d => d.id);
+
+    // 줌 기능 설정
+    const zoom = d3.zoom()
+      .scaleExtent([0.5, 10]) // 최소 0.5배, 최대 10배 줌 가능
+      .on("zoom", (event) => {
+        svg.select("g").attr("transform", event.transform); // 마우스 위치 기준으로 변환
+      });
+
+    // SVG 요소에 줌 기능 적용
+    svg.call(zoom);
 
     // tick 이벤트에서 요소 위치 업데이트
     function ticked() {
@@ -172,6 +159,29 @@ const NetworkChart = ({ data }) => {
       event.subject.fx = null;
       event.subject.fy = null;
     }
+
+    // SVG 상단에 React 스타일 컴포넌트 렌더링
+    svg.append("foreignObject")
+      .attr("x","30%") // 가운데 정렬 (컴포넌트의 너비를 고려)
+      .attr("y", 15) // 상단 위치
+      .attr("width", 200) // 컴포넌트 너비
+      .attr("height", 50) // 컴포넌트 높이
+      .html(`
+        <div style="
+          position: relative;
+          background-color: #5C469C;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          font-family: 'Arial', sans-serif;
+          font-size: 14px;
+          text-align: center;
+          line-height: 1.5;
+        ">
+          Nodes: ${data.nodes.length} | Edges: ${data.edges.length}
+        </div>
+      `);
 
     return () => {
       simulation.stop();
