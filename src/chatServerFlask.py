@@ -17,7 +17,11 @@ recordText=""
 @app.route('/run-query', methods=['POST'])
 def run_query():
     message = request.json.get('message', '')
+    type = request.json.get('type', '')
+
     print(f'message: {message}')
+    print(f'type: {type}')
+
     message += " 영어 말고 한국어로 답변해줘."
 
     # Python 실행 환경에 UTF-8 인코딩 적용
@@ -29,7 +33,7 @@ def run_query():
         '--response-type',
         'Single Sentence',
         '--method',
-        'local',
+        type,
         '--query',
         message
     ]
@@ -92,3 +96,4 @@ def run_query():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
+    # app.run(host='0.0.0.0', port=5000, debug=True) # local 환경설정
