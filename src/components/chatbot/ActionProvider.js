@@ -1,4 +1,5 @@
 import Loader from "./Loader";
+import adapter from "./Adapter";
 
 class ActionProvider {
     constructor(createChatbotMessage, setStateFunc, createClientMessage) {
@@ -9,6 +10,9 @@ class ActionProvider {
 
     handleUserMessage = async (message) => {
         try {
+
+            let type = adapter.getType();
+            console.log(`handleUserMessage type : ${type}`)
             
             // 로딩 메시지
             const loading = this.createChatbotMessage(<Loader />)
@@ -20,11 +24,12 @@ class ActionProvider {
             
             // 서버에 요청 보내기
             const response = await fetch('https://uncommon-closely-sparrow.ngrok-free.app/run-query', {
+            // const response = await fetch('http://localhost:5000/run-query', { // local로 실행
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message }), // 사용자 메시지를 서버로 전달
+                body: JSON.stringify({ message, type }), // 사용자 메시지를 서버로 전달
             });
             const data = await response.json(); // 서버의 응답 받기 dataResult
 

@@ -103,7 +103,7 @@
     right: 20px;
     width: 55px;
     height: 55px;
-    background-color: #5C469C;
+    background-color: #B6ABFF;
     border-radius: 50%;
     border: none;
     color: white;
@@ -117,7 +117,7 @@
 }
 
 .chatbot-button:hover {
-    background-color: #B6ABFF;
+    background-color: #5C469C;
 }
 
 .chatbot-container {

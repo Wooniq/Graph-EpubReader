@@ -235,7 +235,7 @@ const App = () => {
             {page}
           </div>
           <ReactReader
-            url="https://react-reader.metabits.no/files/alice.epub"  // 여기에 미리 지정한 EPUB 파일 경로
+            url="epub/Peterpan.epub"  // 여기에 미리 지정한 EPUB 파일 경로
             locationChanged={locationChanged}
             getRendition={(rendition) => {
               setRendition(rendition)
