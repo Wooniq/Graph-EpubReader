@@ -12,7 +12,9 @@ class ActionProvider {
         try {
 
             let resMethod = adapter.getResMethod();
+            let resType = adapter.getResType();
             console.log(`handleUserMessage resMethod : ${resMethod}`)
+            console.log(`handleUserMessage resMethod : ${resType}`)
             
             // 로딩 메시지
             const loading = this.createChatbotMessage(<Loader />)
@@ -29,7 +31,7 @@ class ActionProvider {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message, resMethod }), // 사용자 메시지를 서버로 전달
+                body: JSON.stringify({ message, resMethod, resType }), // 사용자 메시지를 서버로 전달
             });
             const data = await response.json(); // 서버의 응답 받기 dataResult
 

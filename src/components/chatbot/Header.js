@@ -11,33 +11,49 @@ const HeaderContainer = styled.div`
   padding: 0.9rem;
 
   .ri-heart-3-line,
-  .ri-heart-3-fill {
+  .ri-heart-3-fill,
+  .ri-chat-3-line,
+  .ri-chat-3-fill {
     font-size: 1.5rem;
+    padding-left: 0.5rem;
     color: #ffffff;
   }
 `;
 
-
 function Header() {
   const [isClicked, setIsClicked] = useState(false); // 아이콘 상태 관리
+  const [isClickedType, setIsClickedType] = useState(false); // 아이콘 상태 관리
 
   useEffect(() => {
     setIsClicked(adapter.getResMethod() === 'local' ? isClicked : !isClicked);
+    setIsClickedType(adapter.getResType() === 'Single Sentence' ? isClickedType : !isClickedType);
   }, []);
 
-  const toggleHeart = () => {
+  const toggleMethod = () => {
     setIsClicked(!isClicked);
     adapter.setResMethod(isClicked? 'local' : 'global');
+  };
+
+  const toggleType = () => {
+    setIsClickedType(!isClickedType);
+    adapter.setResType(isClickedType? 'Single Sentence' : 'Single Paragraph');
   };
   
     return (
         <HeaderContainer>
           <div style={{ color: 'white', fontWeight: 'bold', fontSize: '1rem' }}>Rabbit</div>
-          {isClicked ? (
-            <i className="ri-heart-3-fill" onClick={toggleHeart} /> // 채워진 하트 아이콘
-          ) : (
-            <i className="ri-heart-3-line" onClick={toggleHeart} /> // 빈 하트 아이콘
-          )}
+          <div>
+            {isClicked ? (
+              <i className="ri-heart-3-fill" onClick={toggleMethod} /> // 채워진 하트 아이콘
+            ) : (
+              <i className="ri-heart-3-line" onClick={toggleMethod} /> // 빈 하트 아이콘
+            )}
+            {isClickedType ? (
+              <i className="ri-chat-3-fill" onClick={toggleType} /> 
+            ) : (
+              <i className="ri-chat-3-line" onClick={toggleType} /> 
+            )}
+          </div>
         </HeaderContainer>
     );
 }
