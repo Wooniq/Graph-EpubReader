@@ -17,7 +17,7 @@ recordText=""
 @app.route('/run-query', methods=['POST'])
 def run_query():
     message = request.json.get('message', '')
-    method = request.json.get('resMethod', '')
+    resMethod = request.json.get('resMethod', '')
 
     print(f'message: {message}')
     print(f'resMethod: {resMethod}')
