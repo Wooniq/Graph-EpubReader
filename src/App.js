@@ -15,6 +15,9 @@ import data from './json/graphml_data.json';
 import "./styles/chatbot.css";
 import { startRecording }from './recorder.js';
 import adapter from "./components/chatbot/Adapter.js";
+import CustomKeyboard from './components/Keyboard/CustomKeyboard.js';
+import styled from "styled-components";
+import { RiKeyboardBoxFill } from "react-icons/ri";
 
 // WebRTC
 import VideoChat from './webRTC/components/VideoChat';
@@ -45,6 +48,9 @@ const App = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [forceUpdate, setForceUpdate] = useState(false);
   const [viewerType/*, setViewerType*/] = useState('epub');  // 뷰어 타입 상태 추가
+  const [text, setText] = useState("");
+  const [isKeyboardVisible, setIsKeyboardVisible] = useState(true);
+
 //////////
   const actionProvider = new ActionProvider(
     createChatBotMessage,
@@ -120,8 +126,11 @@ const App = () => {
   };
 
   const toggleChatbot = () => {
-    console.log("Toggling Chatbot...");
     setIsOpen(!isOpen); // 버튼을 누를 때마다 열리고 닫히는 상태 토글
+  };
+
+  const toggleKeyboard = () => {
+    setIsKeyboardVisible((prev) => !prev); // 키보드 표시 여부 토글
   };
 
   const updatePageInfo = (epubcifi) => {
@@ -193,6 +202,36 @@ const App = () => {
       rendition.themes.select('default')
     }
   }, [rendition])
+
+  // isOpen이 true일 때, 특정 class를 가진 input 요소에 포커스를 줍니다.
+  useEffect(() => {
+    if (isOpen) {
+      const inputElement = document.querySelector(".react-chatbot-kit-chat-input");
+      console.log(`inputElement: ${inputElement}`);
+      if (inputElement) {
+        inputElement.value = text; // 텍스트를 직접 설정
+        // inputElement.addEventListener('input', handleChange); // input 이벤트 리스너 추가
+        // inputElement.focus(); // 해당 input 요소에 포커스를 설정
+      }
+    }
+
+    // clean up 함수 (useEffect가 종료될 때 이벤트 리스너를 제거)
+    return () => {
+      const inputElement = document.querySelector(".react-chatbot-kit-chat-input");
+      if (inputElement&& isKeyboardVisible) {
+        inputElement.removeEventListener('input', handleChange);
+      }
+    };
+  }, [isOpen, text]); // isOpen이나 text가 변경될 때마다 실행
+
+  // onChange 핸들러
+  const handleChange = (e) => {
+    // 상태 업데이트 전 현재 값을 확인하고, 중복되지 않게 처리
+    const newText = e.target.value;
+    if (newText !== text) {
+        setText(newText);  // 새로운 텍스트로 상태 업데이트
+    }
+};
 
   // 뷰어 렌더링 함수
   const renderViewer = () => {
@@ -323,6 +362,17 @@ const App = () => {
           <button className="mic" onClick={mic}>
             <img src="image/VoiceIcon.png" alt="mic Icon" style={{ width: '20px', height: '20px' }} />
           </button>
+
+          {/* 키보드 버튼 */}
+          {/* <button className="keyboard" onClick={toggleKeyboard}>
+            <img src="image/VoiceIcon.png" alt="mic Icon" style={{ width: '20px', height: '20px' }} />
+          </button> */}
+          <RiKeyboardBoxFill className='keyboard' style={{width: '20px', height: '20px'}} color='grey' onClick={toggleKeyboard}/>
+
+          {isKeyboardVisible &&
+            <CustomKeyboard text={text} setText={setText} setMessages={setMessages} setForceUpdate={setForceUpdate}/>
+          }
+          
         </>
       )}
 
@@ -330,8 +380,7 @@ const App = () => {
       <button className="chatbot-button" onClick={toggleChatbot}>
         <img src="image/network.png" alt="Chatbot Icon" style={{ width: '30px', height: '30px' }} />
       </button>
-      
-      
+
     </div>
   )
 }
