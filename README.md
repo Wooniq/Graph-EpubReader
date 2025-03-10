@@ -31,7 +31,7 @@ Graph-EpubReader는 아래와 같은 대회에서 수상한 바 있습니다.
 이러한 수상 경력은 프로젝트의 혁신성과 실용성을 인정받은 결과이며, 지속적인 개선과 발전을 위한 원동력이 되고 있습니다.
 
 
-| 2024 SW중심대학 연합 SW FESTIVAL 대회 (빅데이터/인공지능 부문 장려상, 3위)  | 제11회 한성대학교 C&C Festival(창의융합성과 경진대회) 대상(1위) |
+| 2024 SW중심대학 연합 SW FESTIVAL 대회<br> (빅데이터/인공지능 부문 장려상, 3위)  | 제11회 한성대학교 C&C Festival(창의융합성과 경진대회)<br> 대상(1위) |
 |---|---|
 | ![image](https://github.com/user-attachments/assets/05fc0b1a-2bdc-42ad-85bb-fb8f32fc7379)
   |   |
