@@ -1,8 +1,8 @@
 # GraphRAG를 활용한 EpubReader
 <!--![image]()-->
 
-## 🎓 SW 산학협력 프로젝트 🎓
-본 프로젝트는 **SW 산학협력 프로젝트**로, **과학기술정보통신부 주관** 아래 진행되었습니다.  
+#### 🎓 SW 산학협력 프로젝트 🎓
+> 본 프로젝트는 **SW 산학협력 프로젝트**로, **과학기술정보통신부 주관** 아래 진행되었습니다.  
 - **프로젝트 기간:** 2024.09.13 ~ 2025.02.07  
 
 ## 👋 프로젝트에 오신 것을 환영합니다 👋
@@ -167,7 +167,7 @@ Graph-EpubReader는 **GraphRAG를 활용한 최초의 파일럿 프로젝트**�
 ---
 
 ✨ **Special Thanks** ✨  
-이 프로젝트는 오픈 소스 커뮤니티와 Microsoft의 GraphRAG 연구진의 지원을 바탕으로 탄생했습니다. 
+이 프로젝트는 오픈 소스 커뮤니티와 [Microsoft의 GraphRAG](https://github.com/microsoft/graphrag) 연구진의 지원을 바탕으로 탄생했습니다. 
 특히, D3.js 및 GraphRAG 같은 강력한 도구를 제공해 주신 개발자분들께 감사드립니다. 🚀  
 
 자세한 내용은 [GitHub 리포지토리](https://github.com/GolddBunny/Graph-EpubReader)를 확인해 주세요.
